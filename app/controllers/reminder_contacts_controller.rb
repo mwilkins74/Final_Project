@@ -1,0 +1,2 @@
+class ReminderContactsController < ApplicationController
+end
