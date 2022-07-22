@@ -1,5 +1,15 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Button from "@mui/material/Button";
+import { createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FF914D",
+    },
+  },
+});
 
 function SignupForm({ setUser }) {
   const history = useHistory();
@@ -89,11 +99,13 @@ function SignupForm({ setUser }) {
               <strong>Password Confirmation</strong>
             </label>
           </div>
-          <input
+          <Button
             type="submit"
             value="Submit"
-            class="btn btn-light btn-block mb-4"
-          />
+            variant="contained"
+            theme={theme}
+          >Submit
+          </Button>
         </form>
       </div>
     </div>
