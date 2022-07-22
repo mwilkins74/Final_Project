@@ -10,16 +10,16 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
-  
+
+  patch "/reminder/:id", to: "reminders#update"
 
   delete "/logout", to: "sessions#destroy"
   delete '/my-reminders/:id', to: "reminders#destroy"
   
 
   
-  # get '/hello', to: 'application#hello_world'
 
-   get '*path',
+  get '*path',
       to: 'fallback#index',
       constraints: ->(req) { !req.xhr? && req.format.html? }
 end
