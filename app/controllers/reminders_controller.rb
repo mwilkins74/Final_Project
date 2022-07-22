@@ -12,7 +12,6 @@ class RemindersController < ApplicationController
 
     def create
         reminder = Reminder.create!(reminder_params)
-        session[[:user_id]] = user.id
         render json: reminder, status: :created
     end
 
@@ -23,7 +22,7 @@ class RemindersController < ApplicationController
     end
 
     def destroy
-        reminder = Reminder.find_by(params[:reminder_id])
+        reminder = Reminder.find(params[:id])
         reminder.destroy
         render json: reminder
     end

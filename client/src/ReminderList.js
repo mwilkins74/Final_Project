@@ -2,11 +2,25 @@ import React from "react";
 import ReminderCard from "./ReminderCard";
 import Grid from "@mui/material/Button";
 import Item from "@mui/material/Button";
+import Button from "@mui/material/Button";
+import { createTheme } from "@mui/material/styles";
 
-function ReminderList({ user, reminders }) {
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FF914D",
+    },
+  },
+});
+
+function ReminderList({ user, setUser, reminders, setReminders }) {
   const postReminders = reminders.map((reminder) => (
     <ReminderCard
       user={user}
+      setUser={setUser}
+      reminder={reminder}
+      reminders={reminders}
+      setReminders={setReminders}
       key={reminders.id}
       id={reminder.id}
       title={reminder.title}
@@ -16,17 +30,16 @@ function ReminderList({ user, reminders }) {
     />
   ));
 
-  let allReminders = reminders
+  let allReminders = reminders;
   return (
-    
-    <Grid container spacing={4} columns={16}>
-      <Grid item xs={6} md={8}>
-        <Item>{postReminders}</Item>
+    <div>
+      <Grid container spacing={2} columns={16}>
+        <Grid item xs={6} md={8}>
+          <Item>{postReminders}</Item>
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 }
 
 export default ReminderList;
-
-

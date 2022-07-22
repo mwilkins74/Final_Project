@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import ReminderList from "./ReminderList";
+import NewReminderForm from "./NewReminderForm";
+
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
-import Avatar from "@mui/material/Avatar";
-import { orange } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
@@ -14,10 +14,9 @@ const theme = createTheme({
   },
 });
 
-
 function Home({ user, setUser }) {
   const [reminders, setReminders] = useState([]);
-  let history = useHistory()
+  let history = useHistory();
 
   useEffect(() => {
     fetch("/reminders")
@@ -30,14 +29,13 @@ function Home({ user, setUser }) {
 
   function handleLogout() {
     fetch("/logout", {
-      method: "DELETE"
-    })
-      .then((r) => {
-        if (r.ok) {
-          setUser(null)
-          history.push("/")
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+        history.push("/");
       }
-    })
+    });
   }
 
   return (
@@ -52,11 +50,17 @@ function Home({ user, setUser }) {
       <Button variant="contained" theme={theme} onClick={handleLogout}>
         Log Out
       </Button>
-      <ReminderList user={user} reminders={reminders} />
-
-      <Button variant="contained" theme={theme} >
-        + New Reminder
-      </Button>
+      <ReminderList
+        user={user}
+        setUser={setUser}
+        reminders={reminders}
+        setReminders={setReminders}
+      />
+      <NewReminderForm
+        user={user}
+        reminders={reminders}
+        setReminders={setReminders}
+      />
     </div>
   );
 }

@@ -10,9 +10,10 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
+  
 
   delete "/logout", to: "sessions#destroy"
-
+  delete '/my-reminders/:id', to: "reminders#destroy"
   
 
   
