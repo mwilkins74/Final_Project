@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import EditForm from "./EditForm";
 
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { createTheme } from "@mui/material/styles";
 
@@ -20,7 +20,8 @@ const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.primary,
+  width: theme.spacing(32),
 }));
 
 function ReminderCard({
@@ -32,7 +33,9 @@ function ReminderCard({
   reminders,
   setReminders,
   setUser,
-}) {
+})
+
+{
   function handleDelete() {
     console.log("delete called");
     fetch(`/my-reminders/${reminder.id}`, { method: "DELETE" }).then((res) =>
@@ -40,6 +43,12 @@ function ReminderCard({
         setReminders(reminders.filter((rem) => rem.id !== data.id));
       })
     );
+  }
+
+  const [showEditForm, setShowEditForm] = useState(false);
+
+  function editForm(e) {
+    setShowEditForm(!showEditForm);
   }
 
   return (
@@ -61,6 +70,20 @@ function ReminderCard({
       <Button variant="contained" theme={theme} onClick={() => handleDelete()}>
         🗑
       </Button>
+      <Button onClick={editForm} variant="contained" theme={theme}>
+        {showEditForm ? "Hide" : "Edit"}
+      </Button>
+      <br />
+      <br />
+      <br />
+      {showEditForm ? (
+        <EditForm
+          user={user}
+          reminder={reminder}
+          reminders={reminders}
+          setReminders={setReminders}
+        />
+      ) : null}
     </div>
   );
 }

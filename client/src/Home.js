@@ -16,6 +16,8 @@ const theme = createTheme({
 
 function Home({ user, setUser }) {
   const [reminders, setReminders] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  
   let history = useHistory();
 
   useEffect(() => {
@@ -26,6 +28,10 @@ function Home({ user, setUser }) {
         setReminders(data);
       });
   }, []);
+
+  function handleForm(e) {
+    setShowForm(!showForm);
+  }
 
   function handleLogout() {
     fetch("/logout", {
@@ -56,11 +62,19 @@ function Home({ user, setUser }) {
         reminders={reminders}
         setReminders={setReminders}
       />
-      <NewReminderForm
-        user={user}
-        reminders={reminders}
-        setReminders={setReminders}
-      />
+      <Button onClick={handleForm} variant="contained" theme={theme}>
+        {showForm ? "Hide New Reminder Form" : "Add New Reminder"}
+      </Button>
+      <br />
+      <br />
+      <br />
+      {showForm ? (
+        <NewReminderForm
+          user={user}
+          reminders={reminders}
+          setReminders={setReminders}
+        />
+      ) : null}
     </div>
   );
 }

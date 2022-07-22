@@ -2,7 +2,6 @@ import React from "react";
 import ReminderCard from "./ReminderCard";
 import Grid from "@mui/material/Button";
 import Item from "@mui/material/Button";
-import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -30,9 +29,11 @@ function ReminderList({ user, setUser, reminders, setReminders }) {
     />
   ));
 
-  let allReminders = reminders;
   return (
     <div>
+      <br />
+      <br />
+      <br />
       <Grid container spacing={2} columns={16}>
         <Grid item xs={6} md={8}>
           <Item>{postReminders}</Item>

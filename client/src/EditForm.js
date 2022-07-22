@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
+
 
 const theme = createTheme({
   palette: {
@@ -11,37 +12,32 @@ const theme = createTheme({
   },
 });
 
-function NewReminderForm({ user, reminders, setReminders }) {
+function EditForm({ user, reminder, reminders, setReminders }) {
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-
-  function handleNewReminder() {
-    fetch("/reminders", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: title,
-        address: address,
-        date: date,
-        time: time,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        return res;
+    
+    function handleReminderEdit(url) {
+      fetch(`/reminders/${reminder.id}`, {
+        method: "PATCH",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          title: title,
+          address: address,
+          date: date,
+          time: time,
+        }),
       })
-      .catch((err) => console.error(err));
-    setReminders(reminders);
-  }
+        .then((r) => r.json())
+        .then((data) => setReminders(data));
+    }
 
   return (
     <div class="row mb-4">
       <div class="col d-flex justify-content-center">
-        <form onSubmit={handleNewReminder}>
+        <form onSubmit={handleReminderEdit}>
+                  
           {/* Title */}
           <div class="form-outline mb-4">
             <input
@@ -103,11 +99,7 @@ function NewReminderForm({ user, reminders, setReminders }) {
           </div>
 
           {/* Submit Button */}
-          <Button
-            type="submit"
-            variant="contained"
-            theme={theme}
-                  > 
+          <Button type="submit" variant="contained" theme={theme}>
             + Reminder
           </Button>
         </form>
@@ -116,4 +108,4 @@ function NewReminderForm({ user, reminders, setReminders }) {
   );
 }
 
-export default NewReminderForm;
+export default EditForm;
