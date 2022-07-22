@@ -16,6 +16,7 @@ Reminder.create!(title: "Family Dinner", address: "1690 Lexington Ave. New York,
 Reminder.create!(title: "Gym", address: "1429 2nd Ave. New York, NY 10020", date: "2022-07-20")
 Reminder.create!(title: "Run", address: "28 3rd Ave. New York, NY 10013", date: "2022-07-25")
 
+
 puts "User Seeds"
 
 User.create!(email: "markymark@gmail.com", password: "123")

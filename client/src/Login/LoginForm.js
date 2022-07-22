@@ -1,5 +1,15 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Button from "@mui/material/Button";
+import { createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FF914D",
+    },
+  },
+});
 
 function LoginForm({ setUser }) {
   const [email, setEmail] = useState("");
@@ -35,6 +45,7 @@ function LoginForm({ setUser }) {
       <div class="row mb-4">
         <div class="col d-flex justify-content-center">
           <form onSubmit={handleSubmit}>
+
             {/* Username Input */}
             <div class="form-outline mb-4">
               <input
@@ -65,9 +76,9 @@ function LoginForm({ setUser }) {
             </div>
 
             {/* Submit Button */}
-            <button type="submit" class="btn btn-light btn-block mb-4">
+            <Button type="submit" variant="contained" theme={theme}>
               {isLoading ? "Loading..." : "Login"}
-            </button>
+            </Button>
             {errors.map((err) => (
               <alert key={err}>"Invalid information"</alert>
             ))}
