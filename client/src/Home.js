@@ -4,13 +4,23 @@ import ReminderList from "./ReminderList";
 import NewReminderForm from "./NewReminderForm";
 // import ReminderListAgain from "./ReminderListAgain";
 // import EditForm from "./EditForm";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
+
+import Button from "@mui/material/Button";
+import { createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FF914D",
+    },
+  },
+});
 
 function Home({ user, setUser }) {
   const [reminders, setReminders] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [change, setChange] = useState(false);
-  
 
   console.log(user);
   let history = useHistory();
@@ -18,7 +28,6 @@ function Home({ user, setUser }) {
   function handleForm(e) {
     setShowForm(!showForm);
   }
-
   
   useEffect(() => {
     fetch("/reminders")
@@ -44,8 +53,8 @@ function Home({ user, setUser }) {
     setReminders(data);
   }
 
-  if (!user && !user.email) {history.push("/")}
-  
+  if (!user && !user.email) { history.push("/") }
+
   return (
     <div className="home">
       <div>
@@ -55,16 +64,20 @@ function Home({ user, setUser }) {
           alt="logo"
         />
       </div>
-      {/* <p>`Welcome to Remind Me ${email}!`</p> */}
       <style type="text/css">
         {`
     .btn-btn {
       color: black;
+      border: solid 1px;
+      border-radius: 1px 0 3px 4px;
+      
     `}
       </style>
       <Button
         onClick={handleLogout}
         variant="btn"
+        theme={theme}
+        sx={{ boxShadow: 3 }}
         style={{ backgroundColor: "#FF914D" }}
       >
         Log Out
@@ -72,26 +85,11 @@ function Home({ user, setUser }) {
       <br />
       <br />
       <br />
-      {reminders ? (
-        <ReminderList
-         
-          user={user}
-          setUser={setUser}
-          reminders={reminders}
-          setReminders={setReminders}
-          change={change}
-          setChange={setChange}
-        />
-      ) : (
-        <p>User have no reminders</p>
-      )}
-
-      <br />
-      <br />
-      <br />
       <Button
         onClick={handleForm}
         variant="btn"
+        theme={theme}
+        sx={{ boxShadow: 3 }}
         style={{ backgroundColor: "#FF914D" }}
       >
         {showForm ? "Hide New Reminder Form" : "Add New Reminder"}
@@ -108,8 +106,18 @@ function Home({ user, setUser }) {
           setRem={setRem}
         />
       ) : null}
-
-     
+      {reminders ? (
+        <ReminderList
+          user={user}
+          setUser={setUser}
+          reminders={reminders}
+          setReminders={setReminders}
+          change={change}
+          setChange={setChange}
+        />
+      ) : (
+        <p>User have no reminders</p>
+      )}
     </div>
   );
 }

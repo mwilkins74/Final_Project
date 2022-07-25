@@ -11,13 +11,12 @@ const theme = createTheme({
   },
 });
 
-function NewReminderForm({ user, reminders, setReminders, setRem, change, setChange }) {
+function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [newReminder, setNewReminder] = useState();
-  // const [category, setCategory] = useState("");
 
   useEffect(() => {
     fetch("/reminders")
@@ -30,7 +29,7 @@ function NewReminderForm({ user, reminders, setReminders, setRem, change, setCha
 
   function handleNewReminder(e) {
       console.log(user.id);
-
+      console.log(time)
     e.preventDefault();
     fetch("/reminders", {
       method: "POST",
@@ -41,8 +40,8 @@ function NewReminderForm({ user, reminders, setReminders, setRem, change, setCha
         title: title,
         address: address,
         date: date,
+        time: time, 
         user_id: user.id,
-        // time: time,
       }),
     })
       .then((res) => res.json())
@@ -51,20 +50,13 @@ function NewReminderForm({ user, reminders, setReminders, setRem, change, setCha
         setNewReminder(res);
       }).then((change) => setChange(!change))
       .catch((err) => console.error(err));
-    // console.log(newReminder, "after submitting");
-    // setReminders(newReminder);
-    // setRem([...reminders, newRem÷inder]);
   }
-
-
-  useEffect(() => {
-    console.log(reminders, "after posting");
-  }, [newReminder]);
 
   return (
     <div class="row mb-4">
       <div class="col d-flex justify-content-center">
         <form onSubmit={(e) => handleNewReminder(e)}>
+          
           {/* Title */}
           <div class="form-outline mb-4">
             <input
