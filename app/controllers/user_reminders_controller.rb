@@ -1,0 +1,2 @@
+class UserRemindersController < ApplicationController
+end

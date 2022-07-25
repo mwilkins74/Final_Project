@@ -17,8 +17,9 @@ function EditForm({ user, reminder, reminders, setReminders }) {
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  // const [category, setCategory] = useState("");
     
-    function handleReminderEdit(url) {
+    function handleReminderEdit() {
       fetch(`/reminders/${reminder.id}`, {
         method: "PATCH",
         headers: { "Content-type": "application/json" },
@@ -37,7 +38,6 @@ function EditForm({ user, reminder, reminders, setReminders }) {
     <div class="row mb-4">
       <div class="col d-flex justify-content-center">
         <form onSubmit={handleReminderEdit}>
-                  
           {/* Title */}
           <div class="form-outline mb-4">
             <input

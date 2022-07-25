@@ -1,18 +1,11 @@
 import React from "react";
 import ReminderCard from "./ReminderCard";
-import Grid from "@mui/material/Button";
-import Item from "@mui/material/Button";
-import { createTheme } from "@mui/material/styles";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#FF914D",
-    },
-  },
-});
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
-function ReminderList({ user, setUser, reminders, setReminders }) {
+function ReminderList({ user, setUser, reminders, setReminders, change, setChange }) {
+  
   const postReminders = reminders.map((reminder) => (
     <ReminderCard
       user={user}
@@ -24,22 +17,38 @@ function ReminderList({ user, setUser, reminders, setReminders }) {
       id={reminder.id}
       title={reminder.title}
       address={reminder.address}
-      // time={time}
-      // date={date}
+      date={reminder.date}
+      time={reminder.time}
+      incomplete={reminder.incomplete}
     />
   ));
 
   return (
-    <div>
-      <br />
-      <br />
-      <br />
-      <Grid container spacing={2} columns={16}>
-        <Grid item xs={6} md={8}>
-          <Item>{postReminders}</Item>
-        </Grid>
-      </Grid>
-    </div>
+    <Container className="list">
+      <Row class="fw-bolder row gx-5 row gy-5 p-3">
+        {reminders.map((reminder) =>
+          reminder.id ? (
+            <ReminderCard
+              user={user}
+              setUser={setUser}
+              reminder={reminder}
+              reminders={reminders}
+              setReminders={setReminders}
+              key={reminders.id}
+              id={reminder.id}
+              title={reminder.title}
+              address={reminder.address}
+              date={reminder.date}
+              time={reminder.time}
+              incomplete={reminder.incomplete}
+            />
+            
+          ) : (
+            ""
+          )
+        )}
+      </Row>
+    </Container>
   );
 }
 

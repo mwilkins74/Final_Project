@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
@@ -11,13 +11,27 @@ const theme = createTheme({
   },
 });
 
-function NewReminderForm({ user, reminders, setReminders }) {
+function NewReminderForm({ user, reminders, setReminders, setRem, change, setChange }) {
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [newReminder, setNewReminder] = useState();
+  // const [category, setCategory] = useState("");
 
-  function handleNewReminder() {
+  useEffect(() => {
+    fetch("/reminders")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setRem(data);
+      });
+  }, []);
+
+  function handleNewReminder(e) {
+      console.log(user.id);
+
+    e.preventDefault();
     fetch("/reminders", {
       method: "POST",
       headers: {
@@ -27,21 +41,30 @@ function NewReminderForm({ user, reminders, setReminders }) {
         title: title,
         address: address,
         date: date,
-        time: time,
+        user_id: user.id,
+        // time: time,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
-        return res;
-      })
+        console.log(res);
+        setNewReminder(res);
+      }).then((change) => setChange(!change))
       .catch((err) => console.error(err));
-    setReminders(reminders);
+    // console.log(newReminder, "after submitting");
+    // setReminders(newReminder);
+    // setRem([...reminders, newRem÷inder]);
   }
+
+
+  useEffect(() => {
+    console.log(reminders, "after posting");
+  }, [newReminder]);
 
   return (
     <div class="row mb-4">
       <div class="col d-flex justify-content-center">
-        <form onSubmit={handleNewReminder}>
+        <form onSubmit={(e) => handleNewReminder(e)}>
           {/* Title */}
           <div class="form-outline mb-4">
             <input
@@ -102,12 +125,7 @@ function NewReminderForm({ user, reminders, setReminders }) {
             </label>
           </div>
 
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            variant="contained"
-            theme={theme}
-                  > 
+          <Button type="submit" variant="contained" theme={theme}>
             + Reminder
           </Button>
         </form>
