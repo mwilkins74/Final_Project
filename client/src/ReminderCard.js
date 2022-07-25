@@ -1,34 +1,18 @@
 import React, { useState } from "react";
 import EditForm from "./EditForm";
 
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
-import { createTheme } from "@mui/material/styles";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#FF914D",
-    },
-  },
-});
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.primary,
-  width: theme.spacing(32),
-}));
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 function ReminderCard({
   id,
   user,
   title,
+  date,
+  time,
+  incomplete,
   address,
+  category, 
   reminder,
   reminders,
   setReminders,
@@ -46,45 +30,73 @@ function ReminderCard({
   }
 
   const [showEditForm, setShowEditForm] = useState(false);
+  const [complete, setComplete] = useState(false);
+
 
   function editForm(e) {
     setShowEditForm(!showEditForm);
   }
 
+  function handleComplete() {
+    setComplete(!complete);
+  }
+
   return (
-    <div className="cards">
-      <Grid container spacing={16} columns={16}>
-        <Grid item xs={6} md={8}>
-          <Item>
-            {title}
-            <br />
-            <br />
-            {address}
-            <br />
-            Date
-            <br />
-            Time
-          </Item>
-        </Grid>
-      </Grid>
-      <Button variant="contained" theme={theme} onClick={() => handleDelete()}>
-        🗑
-      </Button>
-      <Button onClick={editForm} variant="contained" theme={theme}>
-        {showEditForm ? "Hide" : "Edit"}
-      </Button>
-      <br />
-      <br />
-      <br />
-      {showEditForm ? (
-        <EditForm
-          user={user}
-          reminder={reminder}
-          reminders={reminders}
-          setReminders={setReminders}
-        />
-      ) : null}
-    </div>
+    <Card style={{ width: "18rem" }}>
+      <Card.Body className={!complete ? "incomplete" : "complete"}>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{address}</Card.Text>
+        <Card.Text>{date}</Card.Text>
+        <Card.Text>{time}</Card.Text>
+        {/* <Card.Text>{reminder.incomplete}</Card.Text> */}
+        <style type="text/css">
+          {`
+    .btn-btn {
+      color: black;
+    `}
+        </style>
+
+        {/* Delete Button */}
+        <Button
+          onClick={() => handleDelete()}
+          variant="btn"
+          style={{ backgroundColor: "#FF914D" }}
+        >
+          🗑
+        </Button>
+
+        {/* Edit Form */}
+        <Button
+          onClick={editForm}
+          variant="btn"
+          style={{ backgroundColor: "#FF914D" }}
+        >
+          {showEditForm ? "Hide Edit" : "Edit"}
+        </Button>
+        <br />
+        <br />
+        <br />
+        {showEditForm ? (
+          <EditForm
+            user={user}
+            reminder={reminder}
+            reminders={reminders}
+            setReminders={setReminders}
+          />
+        ) : null}
+        <br />
+        <br />
+        <br />
+        {/* Complete Button */}
+        <Button
+          onClick={handleComplete}
+          variant="btn"
+          style={{ backgroundColor: "#FF914D" }}
+        >
+          {complete ? "✔" : "Done!"}
+        </Button>
+      </Card.Body>
+    </Card>
   );
 }
 

@@ -31,61 +31,59 @@ function LoginForm({ setUser }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => {
-          console.log(user);
-          history.push("/home");
-        });
+        r.json()
+          .then((user) => setUser(user))
+          .then(history.push("/home"));
       } else {
         r.json().then((err) => console.log(err.errors));
       }
     });
   }
 
-    return (
-      <div class="row mb-4">
-        <div class="col d-flex justify-content-center">
-          <form onSubmit={handleSubmit}>
+  return (
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+        <form onSubmit={handleSubmit}>
+          {/* Username Input */}
+          <div class="form-outline mb-4">
+            <input
+              type="email"
+              value={email}
+              placeholder="Please enter your Email"
+              onChange={(e) => setEmail(e.target.value)}
+              id="form2Example1"
+              class="form-control"
+            />
+            <label class="form-label text-white" for="form2Example1">
+              <strong>Email</strong>
+            </label>
+          </div>
 
-            {/* Username Input */}
-            <div class="form-outline mb-4">
-              <input
-                type="email"
-                value={email}
-                placeholder="Please enter your Email"
-                onChange={(e) => setEmail(e.target.value)}
-                id="form2Example1"
-                class="form-control"
-              />
-              <label class="form-label text-white" for="form2Example1">
-                <strong>Email</strong>
-              </label>
-            </div>
+          {/* Password Input */}
+          <div class="form-outline mb-4">
+            <input
+              type="password"
+              id="form2Example2"
+              class="form-control"
+              placeholder="Enter Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <label class="form-label text-white" for="form2Example2">
+              <strong>Password</strong>
+            </label>
+          </div>
 
-            {/* Password Input */}
-            <div class="form-outline mb-4">
-              <input
-                type="password"
-                id="form2Example2"
-                class="form-control"
-                placeholder="Enter Password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <label class="form-label text-white" for="form2Example2">
-                <strong>Password</strong>
-              </label>
-            </div>
-
-            {/* Submit Button */}
-            <Button type="submit" variant="contained" theme={theme}>
-              {isLoading ? "Loading..." : "Login"}
-            </Button>
-            {errors.map((err) => (
-              <alert key={err}>"Invalid information"</alert>
-            ))}
-          </form>
-        </div>
+          {/* Submit Button */}
+          <Button type="submit" variant="contained" theme={theme}>
+            {isLoading ? "Loading..." : "Login"}
+          </Button>
+          {errors.map((err) => (
+            <alert key={err}>"Invalid information"</alert>
+          ))}
+        </form>
       </div>
-    );
+    </div>
+  );
 }
 
 export default LoginForm;

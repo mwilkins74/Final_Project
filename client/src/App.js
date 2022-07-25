@@ -3,17 +3,33 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
+// import OneSignal from "react-onesignal";
 
-function App() { 
+function App() {
   const [user, setUser] = useState({});
+  // const [completed, setCompleted] = useState([])
 
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          // console.log(`The current user is ${user.email}`);
+          setUser(user);
+        });
       }
     });
   }, []);
+
+  // if (!user)
+  //   return (<h3>Please Log In</h3>)
+
+  // console.log(user.id);
+
+  // useEffect(() => {
+  //   OneSignal.init({
+  //     appId: "YOUR-APP-ID-HERE",
+  //   });
+  // }, []);
 
   return (
     <BrowserRouter>

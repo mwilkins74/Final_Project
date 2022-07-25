@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :user_reminders
+  # resources :users
   resources :contacts
   resources :reminders
   resources :user_contacts
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
 
-  patch "/reminder/:id", to: "reminders#update"
 
   delete "/logout", to: "sessions#destroy"
   delete '/my-reminders/:id', to: "reminders#destroy"

@@ -4,6 +4,8 @@ class CreateReminders < ActiveRecord::Migration[7.0]
       t.string :title
       t.string :address
       t.string :date
+      t.string :time
+      t.boolean :incomplete
       t.timestamps
     end
   end

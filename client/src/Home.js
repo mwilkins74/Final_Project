@@ -2,24 +2,24 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import ReminderList from "./ReminderList";
 import NewReminderForm from "./NewReminderForm";
-
-import Button from "@mui/material/Button";
-import { createTheme } from "@mui/material/styles";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#FF914D",
-    },
-  },
-});
+// import ReminderListAgain from "./ReminderListAgain";
+// import EditForm from "./EditForm";
+import Button from "react-bootstrap/Button";
 
 function Home({ user, setUser }) {
   const [reminders, setReminders] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [change, setChange] = useState(false);
   
+
+  console.log(user);
   let history = useHistory();
 
+  function handleForm(e) {
+    setShowForm(!showForm);
+  }
+
+  
   useEffect(() => {
     fetch("/reminders")
       .then((response) => response.json())
@@ -27,23 +27,25 @@ function Home({ user, setUser }) {
         console.log(data);
         setReminders(data);
       });
-  }, []);
-
-  function handleForm(e) {
-    setShowForm(!showForm);
-  }
+  }, [change]);
 
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
-        setUser(null);
+        setUser({});
         history.push("/");
       }
     });
   }
 
+  function setRem(data) {
+    setReminders(data);
+  }
+
+  if (!user && !user.email) {history.push("/")}
+  
   return (
     <div className="home">
       <div>
@@ -53,16 +55,45 @@ function Home({ user, setUser }) {
           alt="logo"
         />
       </div>
-      <Button variant="contained" theme={theme} onClick={handleLogout}>
+      {/* <p>`Welcome to Remind Me ${email}!`</p> */}
+      <style type="text/css">
+        {`
+    .btn-btn {
+      color: black;
+    `}
+      </style>
+      <Button
+        onClick={handleLogout}
+        variant="btn"
+        style={{ backgroundColor: "#FF914D" }}
+      >
         Log Out
       </Button>
-      <ReminderList
-        user={user}
-        setUser={setUser}
-        reminders={reminders}
-        setReminders={setReminders}
-      />
-      <Button onClick={handleForm} variant="contained" theme={theme}>
+      <br />
+      <br />
+      <br />
+      {reminders ? (
+        <ReminderList
+         
+          user={user}
+          setUser={setUser}
+          reminders={reminders}
+          setReminders={setReminders}
+          change={change}
+          setChange={setChange}
+        />
+      ) : (
+        <p>User have no reminders</p>
+      )}
+
+      <br />
+      <br />
+      <br />
+      <Button
+        onClick={handleForm}
+        variant="btn"
+        style={{ backgroundColor: "#FF914D" }}
+      >
         {showForm ? "Hide New Reminder Form" : "Add New Reminder"}
       </Button>
       <br />
@@ -70,11 +101,15 @@ function Home({ user, setUser }) {
       <br />
       {showForm ? (
         <NewReminderForm
+          change={change}
+          setChange={setChange}
           user={user}
           reminders={reminders}
-          setReminders={setReminders}
+          setRem={setRem}
         />
       ) : null}
+
+     
     </div>
   );
 }

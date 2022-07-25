@@ -2,8 +2,7 @@ class RemindersController < ApplicationController
     skip_before_action :authorize
     
     def index
-        reminder = Reminder.all 
-        render json: reminder
+        render json: Reminder.all
     end
 
     def show
@@ -21,6 +20,15 @@ class RemindersController < ApplicationController
         render json: reminder, status: :updated
     end
 
+     def user_reminders
+        user = User.find(session[:user_id])
+        if user
+            render json: user.reminders
+        else
+            render json: {message: "User not found"}, status: :not_found
+        end
+    end
+
     def destroy
         reminder = Reminder.find(params[:id])
         reminder.destroy
@@ -34,6 +42,6 @@ class RemindersController < ApplicationController
     end
 
     def reminder_params
-        params.permit(:title, :address)
+        params.permit(:title, :address, :date, :user_id)
     end
 end
