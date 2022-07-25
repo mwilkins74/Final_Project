@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import EditForm from "./EditForm";
 
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+
+import Button from "@mui/material/Button";
+import { createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FF914D",
+    },
+  },
+});
 
 function ReminderCard({
   id,
@@ -42,7 +52,7 @@ function ReminderCard({
   }
 
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card border="secondary" style={{ width: "18rem" }}>
       <Card.Body className={!complete ? "incomplete" : "complete"}>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{address}</Card.Text>
@@ -60,15 +70,19 @@ function ReminderCard({
         <Button
           onClick={() => handleDelete()}
           variant="btn"
+          theme={theme}
+          sx={{ boxShadow: 3 }}
           style={{ backgroundColor: "#FF914D" }}
         >
-          🗑
+          💣
         </Button>
 
         {/* Edit Form */}
         <Button
           onClick={editForm}
           variant="btn"
+          theme={theme}
+          sx={{ boxShadow: 3 }}
           style={{ backgroundColor: "#FF914D" }}
         >
           {showEditForm ? "Hide Edit" : "Edit"}
@@ -84,13 +98,13 @@ function ReminderCard({
             setReminders={setReminders}
           />
         ) : null}
-        <br />
-        <br />
-        <br />
+        
         {/* Complete Button */}
         <Button
           onClick={handleComplete}
           variant="btn"
+          theme={theme}
+          sx={{ boxShadow: 3 }}
           style={{ backgroundColor: "#FF914D" }}
         >
           {complete ? "✔" : "Done!"}

@@ -20,8 +20,8 @@ Orange #FF914D */
   text-align: center;
   background-color: #004aad;
   height: 100vh;
-  overflow-y: hidden;
-  overflow: hidden;
+  /* overflow-y: hidden;
+  overflow: hidden; */
 }
 
 .app-logo {
@@ -34,8 +34,8 @@ Orange #FF914D */
   text-align: center;
   background-color: white;
   height: 100vh;
-  overflow-y: hidden;
-  overflow: hidden;
+  /* overflow-y: hidden;
+  overflow: hidden; */
   border-radius: 1px 0 3px 4px;
 }
 
@@ -44,6 +44,7 @@ Orange #FF914D */
   border-radius: 10%;
 }
 
+/* Reminder Cards */
 .cards {
   color: black;
   border: solid 1px;
@@ -51,7 +52,9 @@ Orange #FF914D */
 }
 
 .btn {
-  color: black
+  color: black;
+  border: solid 10px;
+  border-radius: 1px 0 3px 4px;
 }
 
 .list {
@@ -63,10 +66,10 @@ Orange #FF914D */
 }
 
 /* Card Stylingf */
-
 .incomplete {
   background-color: lightblue;
 }
+
 .complete {
   background-color: pink
 }
