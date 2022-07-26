@@ -43,6 +43,10 @@ class RemindersController < ApplicationController
        render json: Reminder.order(:date)
     end
 
+    # def reminder_dates
+    #     Reminder.find(params[:date])
+    # end
+
     private
 
     def find_reminder
