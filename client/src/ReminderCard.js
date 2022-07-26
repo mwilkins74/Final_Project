@@ -52,65 +52,64 @@ function ReminderCard({
   }
 
   return (
-    <Card border="secondary" style={{ width: "18rem" }}>
-      <Card.Body className={!complete ? "incomplete" : "complete"}>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{address}</Card.Text>
-        <Card.Text>{date}</Card.Text>
-        <Card.Text>{time}</Card.Text>
-        {/* <Card.Text>{reminder.incomplete}</Card.Text> */}
-        <style type="text/css">
-          {`
+    <div >
+      <Card border="secondary" style={{ width: "18rem" }}>
+        <Card.Body className={!complete ? "incomplete" : "complete"} ><span class="emoji">📍</span>
+          <Card.Title>{title}</Card.Title>
+          <Card.Text>{address}</Card.Text>
+          <Card.Text>{date}</Card.Text>
+          <Card.Text>{time}</Card.Text>
+          {/* <Card.Text>{reminder.incomplete}</Card.Text> */}
+          <style type="text/css">
+            {`
     .btn-btn {
       color: black;
     `}
-        </style>
-
-        {/* Delete Button */}
-        <Button
-          onClick={() => handleDelete()}
-          variant="btn"
-          theme={theme}
-          sx={{ boxShadow: 3 }}
-          style={{ backgroundColor: "#FF914D" }}
-        >
-          💣
-        </Button>
-
-        {/* Edit Form */}
-        <Button
-          onClick={editForm}
-          variant="btn"
-          theme={theme}
-          sx={{ boxShadow: 3 }}
-          style={{ backgroundColor: "#FF914D" }}
-        >
-          {showEditForm ? "Hide Edit" : "Edit"}
-        </Button>
-        <br />
-        <br />
-        <br />
-        {showEditForm ? (
-          <EditForm
-            user={user}
-            reminder={reminder}
-            reminders={reminders}
-            setReminders={setReminders}
-          />
-        ) : null}
-        
-        {/* Complete Button */}
-        <Button
-          onClick={handleComplete}
-          variant="btn"
-          theme={theme}
-          sx={{ boxShadow: 3 }}
-          style={{ backgroundColor: "#FF914D" }}
-        >
-          {complete ? "✔" : "Done!"}
-        </Button>
-      </Card.Body>
-    </Card>
+          </style>
+          {/* Delete Button */}
+          <Button
+            onClick={() => handleDelete()}
+            variant="btn"
+            theme={theme}
+            sx={{ boxShadow: 3 }}
+            style={{ backgroundColor: "#FF914D" }}
+          >
+            💣
+          </Button>
+          {/* Edit Form */}
+          <Button
+            onClick={editForm}
+            variant="btn"
+            theme={theme}
+            sx={{ boxShadow: 3 }}
+            style={{ backgroundColor: "#FF914D" }}
+          >
+            {showEditForm ? "Hide Edit" : "Edit"}
+          </Button>
+          <br />
+          <br />
+          <br />
+          {showEditForm ? (
+            <EditForm
+              user={user}
+              reminder={reminder}
+              reminders={reminders}
+              setReminders={setReminders}
+            />
+          ) : null}
+          {/* Complete Button */}
+          <Button
+            onClick={handleComplete}
+            variant="btn"
+            theme={theme}
+            sx={{ boxShadow: 3 }}
+            style={{ backgroundColor: "#FF914D" }}
+          >
+            {complete ? "✔" : "Done!"}
+          </Button>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 

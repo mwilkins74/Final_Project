@@ -35,6 +35,12 @@ class RemindersController < ApplicationController
         render json: reminder
     end
 
+    # def self.reminder_dates
+    #     data = Reminder.find(:date)
+    #     self.all.sort.reverse
+    #     end
+    # end
+
     private
 
     def find_reminder
