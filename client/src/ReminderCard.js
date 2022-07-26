@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EditForm from "./EditForm";
 
 import Card from "react-bootstrap/Card";
@@ -41,6 +41,7 @@ function ReminderCard({
 
   const [showEditForm, setShowEditForm] = useState(false);
   const [complete, setComplete] = useState(false);
+  const [updateTime, setUpdateTime] = useState("")
 
 
   function editForm(e) {
@@ -51,6 +52,35 @@ function ReminderCard({
     setComplete(!complete);
   }
 
+  const changeTime = () => {
+    let time = reminder.time;
+    time = time.split(":");
+
+    let hours = Number(time[0]);
+    let minutes = Number(time[1]);
+
+    let timeValue;
+
+    if (hours > 0 && hours <= 12) {
+      timeValue = "" + hours;
+    } else if (hours > 12) {
+      timeValue = "" + (hours - 12);
+    } else if (hours === 0) {
+      timeValue = "12";
+    }
+
+    timeValue += minutes < 10 ? ":0" + minutes : ":" + minutes;
+    timeValue += hours >= 12 ? " P.M." : " A.M.";
+    
+    setUpdateTime(timeValue)
+  }
+
+  useEffect(() => {
+    changeTime()
+    console.log(updateTime)
+  }, [])
+
+
   return (
     <div >
       <Card border="secondary" style={{ width: "18rem" }}>
@@ -58,8 +88,7 @@ function ReminderCard({
           <Card.Title>{title}</Card.Title>
           <Card.Text>{address}</Card.Text>
           <Card.Text>{date}</Card.Text>
-          <Card.Text>{time}</Card.Text>
-          {/* <Card.Text>{reminder.incomplete}</Card.Text> */}
+          <Card.Text>{updateTime}</Card.Text>
           <style type="text/css">
             {`
     .btn-btn {

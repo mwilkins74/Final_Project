@@ -111,6 +111,7 @@ function Home({ user, setUser }) {
               zIndex: "tooltip",
             }}
           >
+            <h6></h6>
             <span class="emojiArrow">⬇</span>
           </Button>
         </div>
