@@ -144,7 +144,11 @@ function Home({ user, setUser }) {
         sx={{ boxShadow: 3 }}
         style={{ backgroundColor: "lightblue" }}
       >
-        {showForm ? "Hide New Reminder Form" : "Add New Reminder"}
+        {showForm ? (
+          <strong>Hide New Reminder Form</strong>
+        ) : (
+          <strong>Add New Reminder</strong>
+        )}
       </Button>
       <br />
       <br />

@@ -43,7 +43,6 @@ function ReminderCard({
   const [complete, setComplete] = useState(false);
   const [updateTime, setUpdateTime] = useState("")
 
-
   function editForm(e) {
     setShowEditForm(!showEditForm);
   }
@@ -52,9 +51,11 @@ function ReminderCard({
     setComplete(!complete);
   }
 
+
   const changeTime = () => {
     let time = reminder.time;
     time = time.split(":");
+
 
     let hours = Number(time[0]);
     let minutes = Number(time[1]);
@@ -71,6 +72,7 @@ function ReminderCard({
 
     timeValue += minutes < 10 ? ":0" + minutes : ":" + minutes;
     timeValue += hours >= 12 ? " P.M." : " A.M.";
+
     
     setUpdateTime(timeValue)
   }
@@ -81,20 +83,26 @@ function ReminderCard({
   }, [])
 
 
+  }
+    
   return (
-    <div >
+    <div>
       <Card border="secondary" style={{ width: "18rem" }}>
-        <Card.Body className={!complete ? "incomplete" : "complete"} ><span class="emoji">📍</span>
+        <Card.Body className={!complete ? "incomplete" : "complete"}>
+          <span class="emoji">📍</span>
           <Card.Title>{title}</Card.Title>
           <Card.Text>{address}</Card.Text>
           <Card.Text>{date}</Card.Text>
+
           <Card.Text>{updateTime}</Card.Text>
+
           <style type="text/css">
             {`
     .btn-btn {
       color: black;
     `}
           </style>
+
           {/* Delete Button */}
           <Button
             onClick={() => handleDelete()}
@@ -126,6 +134,7 @@ function ReminderCard({
               setReminders={setReminders}
             />
           ) : null}
+
           {/* Complete Button */}
           <Button
             onClick={handleComplete}

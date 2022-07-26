@@ -28,8 +28,6 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
   }, []);
 
   function handleNewReminder(e) {
-      console.log(user.id);
-      console.log(time)
     e.preventDefault();
     fetch("/reminders", {
       method: "POST",
