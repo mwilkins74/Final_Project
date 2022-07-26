@@ -20,7 +20,6 @@ function LoginForm({ setUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log(e);
     setIsLoading(true);
     fetch("/login", {
       method: "POST",
