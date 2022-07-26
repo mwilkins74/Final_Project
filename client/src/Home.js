@@ -4,8 +4,10 @@ import ReminderList from "./ReminderList";
 import NewReminderForm from "./NewReminderForm";
 // import ReminderListAgain from "./ReminderListAgain";
 // import EditForm from "./EditForm";
+
 // import Button from "react-bootstrap/Button";
 
+import { positions } from "@mui/system";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
 
@@ -49,44 +51,69 @@ function Home({ user, setUser }) {
     });
   }
 
+  function handleDesc() {
+    fetch("/desc-reminders")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setReminders(data);
+      });
+  }
+
+  function handleAsc() {
+    fetch("/asc-reminders")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setReminders(data);
+      });
+  }
+
   function setRem(data) {
     setReminders(data);
   }
 
   if (!user && !user.email) { history.push("/") }
 
-  // const [MyArray, setMyArray] = useState([]);
-  // const [reminders, setReminders] = useState([]);
-  const [sortStatus, setSortStatus] = useState(true);
-
-  const handleSort = () => {
-    const data = reminders.map((reminder) => {
-      if (sortStatus) {
-        let sorted = data.sort((a, b) => a[1] - b[1]);
-        setReminders(sorted);
-        setSortStatus(!sortStatus);
-      } else {
-        let sorted = data.sort((a, b) => b[1] - a[1]);
-        setReminders(sorted);
-        setSortStatus(!sortStatus);
-      }
-    })
-    
-  };
-
   return (
     <div className="home">
-      <div >
+      <div>
         <img
           src="https://user-images.githubusercontent.com/102488171/179615489-cab315df-aea6-4394-8644-affa77ea7a33.png"
           className="home-logo"
           alt="logo"
         />
       </div>
-      <div className="Asc_Desc">
-        <Button onClick={handleSort} style={{ backgroundColor: "lightblue" }}>
-          <span class="emojiArrow">⬇</span>
-        </Button>
+      <div className="up-down">
+        <div className="Asc_Desc">
+          <Button
+            onClick={handleAsc}
+            style={{ backgroundColor: "lightblue" }}
+            sx={{
+              position: "absolute",
+              top: 90,
+              left: "30%",
+              zIndex: "tooltip",
+            }}
+          >
+            <span class="emojiArrow">⬆</span>
+          </Button>
+        </div>
+        <br />
+        <div className="Asc_Desc">
+          <Button
+            onClick={handleDesc}
+            style={{ backgroundColor: "lightblue" }}
+            sx={{
+              position: "absolute",
+              top: 150,
+              left: "30%",
+              zIndex: "tooltip",
+            }}
+          >
+            <span class="emojiArrow">⬇</span>
+          </Button>
+        </div>
       </div>
       <style type="text/css">
         {`

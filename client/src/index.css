@@ -51,11 +51,10 @@ Orange #FF914D */
 }
 
 /* Ascending & Descending Button */
-
-.Asc-Desc {
-  position: absolute;
-  
+.up-down {
+  justify-content: left;
 }
+
 
 img.emojione {
   /* Override any img styles to ensure Emojis are displayed inline */

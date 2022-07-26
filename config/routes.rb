@@ -8,10 +8,11 @@ Rails.application.routes.draw do
 
   get "/me", to: "users#show"
   get "/reminders", to: "reminders#index"
+  get "/desc-reminders", to: "reminders#desc_reminders"
+  get "/asc-reminders", to: "reminders#asc_reminders"
 
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
-
 
   delete "/logout", to: "sessions#destroy"
   delete '/my-reminders/:id', to: "reminders#destroy"
