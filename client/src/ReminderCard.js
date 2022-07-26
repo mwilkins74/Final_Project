@@ -42,7 +42,6 @@ function ReminderCard({
   const [showEditForm, setShowEditForm] = useState(false);
   const [complete, setComplete] = useState(false);
 
-
   function editForm(e) {
     setShowEditForm(!showEditForm);
   }
@@ -52,20 +51,21 @@ function ReminderCard({
   }
 
   return (
-    <div >
+    <div>
       <Card border="secondary" style={{ width: "18rem" }}>
-        <Card.Body className={!complete ? "incomplete" : "complete"} ><span class="emoji">📍</span>
+        <Card.Body className={!complete ? "incomplete" : "complete"}>
+          <span class="emoji">📍</span>
           <Card.Title>{title}</Card.Title>
           <Card.Text>{address}</Card.Text>
           <Card.Text>{date}</Card.Text>
           <Card.Text>{time}</Card.Text>
-          {/* <Card.Text>{reminder.incomplete}</Card.Text> */}
           <style type="text/css">
             {`
     .btn-btn {
       color: black;
     `}
           </style>
+
           {/* Delete Button */}
           <Button
             onClick={() => handleDelete()}
@@ -97,6 +97,7 @@ function ReminderCard({
               setReminders={setReminders}
             />
           ) : null}
+
           {/* Complete Button */}
           <Button
             onClick={handleComplete}
