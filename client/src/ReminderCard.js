@@ -70,7 +70,7 @@ function ReminderCard({
     timeValue += minutes < 10 ? ":0" + minutes : ":" + minutes;
     timeValue += hours >= 12 ? " P.M." : " A.M.";
 
-    setUpdateTime(timeValue);
+    setUpdateTime(timeValue)
   };
 
   useEffect(() => {
@@ -86,7 +86,7 @@ function ReminderCard({
           <Card.Title>{title}</Card.Title>
           <Card.Text>{address}</Card.Text>
           <Card.Text>{date}</Card.Text>
-          <Card.Text>{updateTime}</Card.Text>
+          <Card.Text>{time}</Card.Text>
           <style type="text/css">
             {`
     .btn-btn {

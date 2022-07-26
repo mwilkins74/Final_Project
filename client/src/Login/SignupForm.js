@@ -20,6 +20,7 @@ function SignupForm({ setUser }) {
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmitSignUp(e) {
+    console.log(e.target)
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
@@ -36,10 +37,15 @@ function SignupForm({ setUser }) {
     }).then((res) => {
       setIsLoading(false);
       if (res.ok) {
-        res.json().then((user) => setUser(user));
-        // setEmail("");
-        // setPassword("");
-        // setPasswordConfirmation("");
+        res.json().then((user) => {
+          console.log(user)
+        
+          setUser(user)
+        })
+      ;
+        setEmail("");
+        setPassword("");
+        setPasswordConfirmation("");
         history.push("/home");
             console.log(e.target);
 
@@ -48,11 +54,6 @@ function SignupForm({ setUser }) {
       }
     });
   }
-
-  // console.log('Hi')
-  // function WhatsUp(e) {
-  //   console.log(e.target)
-  // }
 
   return (
     <div class="row mb-4">
