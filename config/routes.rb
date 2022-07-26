@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/reminders", to: "reminders#index"
   get "/desc-reminders", to: "reminders#desc_reminders"
   get "/asc-reminders", to: "reminders#asc_reminders"
+  get "/reminder_dates", to: "reminders#reminder_dates"
 
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
