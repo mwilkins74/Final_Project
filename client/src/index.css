@@ -134,22 +134,3 @@ span.emoji {
   cursor: pointer;
 }
 
-.date {
-  width: 20vmin;
-  background: #004AAD;
-  height: 20vmin;
-  color: white;
-  border-radius: 10%;
-  position: absolute;
-  right: 80px;
-  top: 0px;
-  text-align: center;
-}
-
-.value {
-  padding: 70px 0;
-}
-
-.clock-value {
-  padding: -30px 0;
-}

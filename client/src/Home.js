@@ -83,16 +83,6 @@ function Home({ user, setUser }) {
     history.push("/");
   }
   
-  const currentD = new Date()
-  const date = `${
-    currentD.getMonth() + 1
-    }/${currentD.getDate()}/${currentD.getFullYear()}`
-  
-  const today = new Date()
-  const clock = `${
-    today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
-  }`
-
 
   return (
     <div className="home">
@@ -103,12 +93,7 @@ function Home({ user, setUser }) {
           alt="logo"
         />
       </div>
-      <div className="date">
-        <div>
-          <h3 className="value">{date}</h3>
-          <h3 className="clock-value">{clock}</h3>
-        </div>
-      </div>
+      
       <br />
       <div className="search-bar">
         <Search search={search} onNewSearch={setSearch} />
