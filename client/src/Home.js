@@ -6,9 +6,6 @@ import Search from "./Search";
 // import ReminderListAgain from "./ReminderListAgain";
 // import EditForm from "./EditForm";
 
-// import Button from "react-bootstrap/Button";
-// import { positions } from "@mui/system";
-
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
 
@@ -28,7 +25,6 @@ function Home({ user, setUser }) {
   const [showForm, setShowForm] = useState(false);
   const [change, setChange] = useState(false);
   const [search, setSearch] = useState("");
-
 
   console.log(user);
   let history = useHistory();
