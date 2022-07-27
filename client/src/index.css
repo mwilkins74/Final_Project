@@ -35,7 +35,7 @@ Orange #FF914D */
 .home {
   text-align: center;
   background-color: white;
-  height: 100vh;
+  height: 100%;
   /* overflow-y: hidden;
   overflow: hidden; */
   border-radius: 1px 0 3px 4px;

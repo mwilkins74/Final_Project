@@ -66,7 +66,6 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
               class="form-control"
             />
             <label class="form-label text-white" for="form2Example1">
-              <strong>Title</strong>
             </label>
           </div>
 
@@ -81,7 +80,6 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
               onChange={(e) => setAddress(e.target.value)}
             />
             <label class="form-label text-white" for="form2Example2">
-              <strong>Address</strong>
             </label>
           </div>
 
@@ -96,7 +94,6 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
               onChange={(e) => setDate(e.target.value)}
             />
             <label class="form-label text-white" for="form2Example2">
-              <strong>Date</strong>
             </label>
           </div>
 
@@ -111,7 +108,6 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
               onChange={(e) => setTime(e.target.value)}
             />
             <label class="form-label text-white" for="form2Example2">
-              <strong>Time</strong>
             </label>
           </div>
 

@@ -86,7 +86,7 @@ function ReminderCard({
           <Card.Title>{title}</Card.Title>
           <Card.Text>{address}</Card.Text>
           <Card.Text>{date}</Card.Text>
-          <Card.Text>{time}</Card.Text>
+          <Card.Text>{updateTime}</Card.Text>
           <style type="text/css">
             {`
     .btn-btn {
