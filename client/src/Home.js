@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import ReminderList from "./ReminderList";
 import NewReminderForm from "./NewReminderForm";
+import Search from "./Search";
 // import ReminderListAgain from "./ReminderListAgain";
 // import EditForm from "./EditForm";
 
-// import Button from "react-bootstrap/Button";
-
-import { positions } from "@mui/system";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
 
@@ -16,6 +14,9 @@ const theme = createTheme({
     primary: {
       main: "#FF914D",
     },
+    shape: {
+      borderRadius: 8,
+    },
   },
 });
 
@@ -23,6 +24,7 @@ function Home({ user, setUser }) {
   const [reminders, setReminders] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [change, setChange] = useState(false);
+  const [search, setSearch] = useState("");
 
   console.log(user);
   let history = useHistory();
@@ -30,7 +32,7 @@ function Home({ user, setUser }) {
   function handleForm(e) {
     setShowForm(!showForm);
   }
-  
+
   useEffect(() => {
     fetch("/reminders")
       .then((response) => response.json())
@@ -73,7 +75,13 @@ function Home({ user, setUser }) {
     setReminders(data);
   }
 
-  if (!user && !user.email) { history.push("/") }
+  const displayReminder = reminders.filter((reminder) => {
+    return reminder.title.toLowerCase().includes(search.toLocaleLowerCase());
+  });
+
+  if (!user && !user.email) {
+    history.push("/");
+  }
 
   return (
     <div className="home">
@@ -84,35 +92,68 @@ function Home({ user, setUser }) {
           alt="logo"
         />
       </div>
+      <br />
+      <div className="search-bar">
+        <Search search={search} onNewSearch={setSearch} />
+      </div>
+
+      {/* Ascending & Descending Buttons */}
       <div className="up-down">
-        <div className="Asc_Desc">
+        <div>
           <Button
             onClick={handleAsc}
-            style={{ backgroundColor: "lightblue" }}
+            variant="btn"
+            theme={theme}
+            style={{
+              backgroundColor: "lightblue",
+              maxWidth: "130px",
+              maxHeight: "130px",
+              minWidth: "130px",
+              minHeight: "130px",
+            }}
             sx={{
               position: "absolute",
-              top: 90,
+              top: 20,
               left: "30%",
               zIndex: "tooltip",
+              boxShadow: 3,
             }}
           >
-            <span class="emojiArrow">⬆</span>
+            <span class="emojiArrow">
+              <h6>
+                Ascending <br /> Order
+              </h6>
+              ⬆
+            </span>
           </Button>
         </div>
         <br />
-        <div className="Asc_Desc">
+        <div>
           <Button
             onClick={handleDesc}
-            style={{ backgroundColor: "lightblue" }}
+            variant="btn"
+            theme={theme}
+            style={{
+              backgroundColor: "lightblue",
+              maxWidth: "130px",
+              maxHeight: "130px",
+              minWidth: "130px",
+              minHeight: "130px",
+            }}
             sx={{
               position: "absolute",
-              top: 150,
+              top: 160,
               left: "30%",
               zIndex: "tooltip",
+              boxShadow: 3,
             }}
           >
-            <h6></h6>
-            <span class="emojiArrow">⬇</span>
+            <span class="emojiArrow">
+              <h6>
+                Descending <br /> Order
+              </h6>
+              ⬇
+            </span>
           </Button>
         </div>
       </div>
@@ -142,7 +183,7 @@ function Home({ user, setUser }) {
         variant="btn"
         theme={theme}
         sx={{ boxShadow: 3 }}
-        style={{ backgroundColor: "lightblue" }}
+        style={{ backgroundColor: "pink" }}
       >
         {showForm ? (
           <strong>Hide New Reminder Form</strong>
@@ -166,7 +207,7 @@ function Home({ user, setUser }) {
         <ReminderList
           user={user}
           setUser={setUser}
-          reminders={reminders}
+          reminders={displayReminder}
           setReminders={setReminders}
           change={change}
           setChange={setChange}
