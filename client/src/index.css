@@ -138,18 +138,16 @@ span.emoji {
   width: 20vmin;
   background: #004AAD;
   height: 20vmin;
-  color: white;
+  color: #FF914D;
   border-radius: 10%;
   position: absolute;
   right: 80px;
   top: 0px;
   text-align: center;
+  padding: 90px 0;
 }
 
-.value {
-  padding: 70px 0;
+.day {
+  color: white;
 }
 
-.clock-value {
-  padding: -30px 0;
-}

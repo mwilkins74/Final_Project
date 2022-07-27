@@ -25,10 +25,25 @@ function Home({ user, setUser }) {
   const [showForm, setShowForm] = useState(false);
   const [change, setChange] = useState(false);
   const [search, setSearch] = useState("");
+  const [clockFace, setClockFace] = useState('')
+  const locale = 'en'
 
-  console.log(user);
   let history = useHistory();
 
+  let now = new Date();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = days[now.getDay()];
+
+  
   function handleForm(e) {
     setShowForm(!showForm);
   }
@@ -42,6 +57,18 @@ function Home({ user, setUser }) {
       });
   }, [change]);
 
+  // Date and Time
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setClockFace(new Date().toLocaleString())
+    }, 1000)
+
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
+
+  // Logout 
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
@@ -53,6 +80,7 @@ function Home({ user, setUser }) {
     });
   }
 
+  // Descending Order of Reminders
   function handleDesc() {
     fetch("/desc-reminders")
       .then((response) => response.json())
@@ -62,6 +90,7 @@ function Home({ user, setUser }) {
       });
   }
 
+  // Ascending Order of Reminders
   function handleAsc() {
     fetch("/asc-reminders")
       .then((response) => response.json())
@@ -75,6 +104,7 @@ function Home({ user, setUser }) {
     setReminders(data);
   }
 
+  // Search Result Display
   const displayReminder = reminders.filter((reminder) => {
     return reminder.title.toLowerCase().includes(search.toLocaleLowerCase());
   });
@@ -82,16 +112,6 @@ function Home({ user, setUser }) {
   if (!user && !user.email) {
     history.push("/");
   }
-
-  const currentD = new Date();
-  const date = `${
-    currentD.getMonth() + 1
-  }/${currentD.getDate()}/${currentD.getFullYear()}`;
-
-  const today = new Date();
-  const clock = `${
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
-  }`;
 
   return (
     <div className="home">
@@ -104,8 +124,8 @@ function Home({ user, setUser }) {
       </div>
       <div className="date">
         <div>
-          <h3 className="value">{date}</h3>
-          <h3 className="clock-value">{clock}</h3>
+          <h3 className="day">{day}</h3>
+          <h3>{clockFace}</h3>
         </div>
       </div>
       <br />
