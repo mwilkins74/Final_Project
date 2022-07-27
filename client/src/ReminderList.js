@@ -17,34 +17,34 @@ const Item = styled(Card)(({ theme }) => ({
 function ReminderList({ user, setUser, reminders, setReminders }) {
 
   return (
-    <Card sx={{ minWidth: 20 }} >
-      <Grid container spacing={4} >
-        {reminders.map((reminder) =>
-          reminder.id ? (
-            <Grid item xs={2} >
-              <Item>
-                <ReminderCard
-                  user={user}
-                  setUser={setUser}
-                  reminder={reminder}
-                  reminders={reminders}
-                  setReminders={setReminders}
-                  key={reminders.id}
-                  id={reminder.id}
-                  title={reminder.title}
-                  address={reminder.address}
-                  date={reminder.date}
-                  time={reminder.time}
-                  incomplete={reminder.incomplete}
-                />
-              </Item>
-            </Grid>
-          ) : (
-            ""
-          )
-        )}
-      </Grid>
-    </Card>
+      <Card sx={{ minWidth: 20 }}>
+        <Grid container spacing={4}>
+          {reminders.map((reminder) =>
+            reminder.id ? (
+              <Grid item xs={2}>
+                <Item>
+                  <ReminderCard
+                    user={user}
+                    setUser={setUser}
+                    reminder={reminder}
+                    reminders={reminders}
+                    setReminders={setReminders}
+                    key={reminders.id}
+                    id={reminder.id}
+                    title={reminder.title}
+                    address={reminder.address}
+                    date={reminder.date}
+                    time={reminder.time}
+                    incomplete={reminder.incomplete}
+                  />
+                </Item>
+              </Grid>
+            ) : (
+              ""
+            )
+          )}
+        </Grid>
+      </Card>
   );
 }
 

@@ -39,10 +39,10 @@ Orange #FF914D */
   background-color: white;
 
   /* Background Image */
-  /* border-radius: 1px 0 3px 4px;
+  border-radius: 1px 0 3px 4px;
   background-image: url("https://user-images.githubusercontent.com/102488171/180894430-7f34d472-53fc-4bf7-930f-d0fd95bb7dd1.jpeg");
   object-fit: initial;
-  background-attachment: fixed; */
+  background-attachment: fixed;
 }
 
 .home-logo {

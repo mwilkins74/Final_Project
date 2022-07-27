@@ -42,7 +42,6 @@ function Home({ user, setUser }) {
   ];
 
   let day = days[now.getDay()];
-
   
   function handleForm(e) {
     setShowForm(!showForm);
