@@ -8,11 +8,11 @@ import Col from "react-bootstrap/Col";
 function ReminderList({ user, setUser, reminders, setReminders }) {
 
   return (
-    <Container fluid className="list">
-      <Row xs={1} md={2} className="g-4">
+    <Container fluid className="">
+      <Row xs={1} md={2} className="g-4 my-auto">
         {reminders.map((reminder) =>
           reminder.id ? (
-            <Col xs={8} md={2}>
+            <Col xs={8} md={2} className="">
               <ReminderCard
                 user={user}
                 setUser={setUser}
