@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
-import { styled } from "@mui/material/styles";
+// import { styled } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
@@ -30,8 +30,8 @@ function ReminderCard({
   setReminders,
   setUser,
 }) {
+  
   function handleDelete() {
-    // console.log("delete called");
     fetch(`/my-reminders/${reminder.id}`, { method: "DELETE" }).then((res) =>
       res.json().then((data) => {
         setReminders(reminders.filter((rem) => rem.id !== data.id));

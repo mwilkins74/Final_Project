@@ -6,5 +6,8 @@ class User < ApplicationRecord
     has_many :user_contacts
     has_many :contacts, through: :user_contacts
 
-    validates :email, presence: true, uniqueness: true
+    validates :email, 
+    presence: true, 
+    uniqueness: {message: 'Email is already is use.'}
+
 end

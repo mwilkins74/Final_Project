@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
 
@@ -47,7 +48,8 @@ function SignupForm({ setUser }) {
         setPassword("");
         setPasswordConfirmation("");
         history.push("/home");
-            console.log(e.target);
+        console.log(e.target);
+        console.log(email)
 
       } else {
         res.json().then((err) => setErrors(err.errors));
