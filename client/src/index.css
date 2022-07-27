@@ -36,12 +36,13 @@ Orange #FF914D */
   text-align: center;
   height: 100%;
   margin: auto;
-   
+  background-color: white;
+
   /* Background Image */
-  border-radius: 1px 0 3px 4px;
+  /* border-radius: 1px 0 3px 4px;
   background-image: url("https://user-images.githubusercontent.com/102488171/180894430-7f34d472-53fc-4bf7-930f-d0fd95bb7dd1.jpeg");
   object-fit: initial;
-  background-attachment: fixed;
+  background-attachment: fixed; */
 }
 
 .home-logo {
@@ -85,7 +86,6 @@ img.emojione {
   /* Override any img styles to ensure Emojis are displayed inline */
   margin: 0px !important;
   display: inline !important;
-
   height: auto;
   width: 50px;
   position: relative;
@@ -121,7 +121,7 @@ span.emoji {
   height: 40px;
   margin: 0 auto;
   display: inline-block;
-  border: solid 2px;
+  border: solid 1.5px;
 }
 
 .search-icon button {
