@@ -1,14 +1,10 @@
 import React from "react";
 import ReminderCard from "./ReminderCard";
 
-// import Container from "react-bootstrap/Container";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
-
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Card from "@mui/material/Card";
-import { ClassNames } from "@emotion/react";
+// import { ClassNames } from "@emotion/react";
 
 const Item = styled(Card)(({ theme }) => ({
   // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -55,29 +51,3 @@ function ReminderList({ user, setUser, reminders, setReminders }) {
 export default ReminderList;
 
 
-{/* <Container fluid className="">
-      <Row xs={1} md={2} className="g-4 my-auto">
-        {reminders.map((reminder) =>
-          reminder.id ? (
-            <Col xs={8} md={2} className="">
-              <ReminderCard
-                user={user}
-                setUser={setUser}
-                reminder={reminder}
-                reminders={reminders}
-                setReminders={setReminders}
-                key={reminders.id}
-                id={reminder.id}
-                title={reminder.title}
-                address={reminder.address}
-                date={reminder.date}
-                time={reminder.time}
-                incomplete={reminder.incomplete}
-              />
-            </Col>
-          ) : (
-            ""
-          )
-        )}
-      </Row>
-    </Container> */}
