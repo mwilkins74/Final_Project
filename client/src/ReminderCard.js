@@ -29,7 +29,7 @@ function ReminderCard({
   setUser,
 }) {
   function handleDelete() {
-    console.log("delete called");
+    // console.log("delete called");
     fetch(`/my-reminders/${reminder.id}`, { method: "DELETE" }).then((res) =>
       res.json().then((data) => {
         setReminders(reminders.filter((rem) => rem.id !== data.id));

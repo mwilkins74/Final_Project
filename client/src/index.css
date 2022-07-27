@@ -22,8 +22,8 @@ Orange #FF914D */
   text-align: center;
   background-color: #004aad;
   height: 100vh;
-  overflow-y: hidden;
-  overflow: hidden;
+  /* overflow-y: hidden;
+  overflow: hidden; */
 }
 
 .app-logo {
@@ -34,15 +34,14 @@ Orange #FF914D */
 /* Home Screen */
 .home {
   text-align: center;
-  background-color: white;
   height: 100%;
-  /* overflow-y: hidden;
-  overflow: hidden; */
+  margin: auto;
+   
+  /* Background Image */
   border-radius: 1px 0 3px 4px;
   background-image: url("https://user-images.githubusercontent.com/102488171/180894430-7f34d472-53fc-4bf7-930f-d0fd95bb7dd1.jpeg");
-  background-position: center;
-  background-repeat: repeat-y;
-  background-size: cover;
+  object-fit: initial;
+  background-attachment: fixed;
 }
 
 .home-logo {
@@ -53,14 +52,14 @@ Orange #FF914D */
 /* Ascending & Descending Button */
 .up-down {
   justify-content: left;
+
 }
 
-
+/* Arrow Emojis */
 img.emojione {
   /* Override any img styles to ensure Emojis are displayed inline */
   margin: 0px !important;
   display: inline !important;
-
   height: auto;
   width: 50px;
   position: relative;
@@ -105,19 +104,32 @@ span.emoji {
   border-radius: 1px 0 3px 4px;
 }
 
-.list {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
-}
-
-/* Card Stylingf */
+/* Card Styling */
 .incomplete {
   background-color: lightblue;
 }
 
 .complete {
   background-color: pink;
+}
+
+/* Search Bar */
+.search-bar {
+  overflow: hidden;
+  background-color: white;
+  width: 400px;
+  height: 40px;
+  margin: 0 auto;
+  display: inline-block;
+  border: solid 2px;
+}
+
+.search-icon button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 20px;
+  cursor: pointer;
 }

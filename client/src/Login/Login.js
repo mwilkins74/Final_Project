@@ -17,7 +17,7 @@ function Login({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <div>
+    <div className="Login">
       {showLogin ? (
         <>
           <LoginForm setUser={setUser} />
