@@ -134,17 +134,18 @@ span.emoji {
   cursor: pointer;
 }
 
+/* Weekday, Date, Time Display */
 .date {
-  width: 20vmin;
+  width: 15vmin;
   background: #004AAD;
-  height: 20vmin;
+  height: 15vmin;
   color: #FF914D;
   border-radius: 10%;
   position: absolute;
-  right: 80px;
-  top: 0px;
+  right: 40px;
+  top: 40px;
   text-align: center;
-  padding: 90px 0;
+  padding: 45px 0;
 }
 
 .day {

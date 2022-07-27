@@ -60,7 +60,8 @@ function Home({ user, setUser }) {
   // Date and Time
   useEffect(() => {
     const timer = setInterval(() => {
-      setClockFace(new Date().toLocaleString())
+      setClockFace(new Date()
+        .toLocaleString())
     }, 1000)
 
     return () => {
