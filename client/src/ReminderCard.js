@@ -72,7 +72,7 @@ function ReminderCard({
     timeValue += minutes < 10 ? ":0" + minutes : ":" + minutes;
     timeValue += hours >= 12 ? " P.M." : " A.M.";
 
-    setUpdateTime(timeValue);
+    setUpdateTime(timeValue)
   };
 
   useEffect(() => {
@@ -81,7 +81,7 @@ function ReminderCard({
   }, []);
 
   return (
-    <Card Card sx={{ minWidth: 275 }}>
+    <Card Card sx={{ minWidth: 275 }} >
       <CardContent className={!complete ? "incomplete" : "complete"}>
         <span class="emoji">📍</span>
         <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>

@@ -54,7 +54,6 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
     <div class="row mb-4">
       <div class="col d-flex justify-content-center">
         <form onSubmit={(e) => handleNewReminder(e)}>
-          
           {/* Title */}
           <div class="form-outline mb-4">
             <input
@@ -65,9 +64,7 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
               id="form2Example1"
               class="form-control"
             />
-            <label class="form-label text-white" for="form2Example1">
-              <strong>Title</strong>
-            </label>
+            <label class="form-label text-white" for="form2Example1"></label>
           </div>
 
           {/* Address Input */}
@@ -80,9 +77,7 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
               placeholder="Enter Address"
               onChange={(e) => setAddress(e.target.value)}
             />
-            <label class="form-label text-white" for="form2Example2">
-              <strong>Address</strong>
-            </label>
+            <label class="form-label text-white" for="form2Example2"></label>
           </div>
 
           {/* Date Input */}
@@ -95,9 +90,7 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
               placeholder="Enter Date"
               onChange={(e) => setDate(e.target.value)}
             />
-            <label class="form-label text-white" for="form2Example2">
-              <strong>Date</strong>
-            </label>
+            <label class="form-label text-white" for="form2Example2"></label>
           </div>
 
           {/* Time Input */}
@@ -110,13 +103,17 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
               placeholder="Enter Time"
               onChange={(e) => setTime(e.target.value)}
             />
-            <label class="form-label text-white" for="form2Example2">
-              <strong>Time</strong>
-            </label>
+            <label class="form-label text-white" for="form2Example2"></label>
           </div>
 
-          <Button type="submit" variant="contained" theme={theme}>
-            + Reminder
+          <Button
+            type="submit"
+            variant="btn"
+            theme={theme}
+            sx={{ boxShadow: 3 }}
+            style={{ backgroundColor: "lightblue" }}
+          >
+            <strong>+ Reminder</strong>
           </Button>
         </form>
       </div>
