@@ -6,6 +6,7 @@ import Search from "./Search";
 
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
+import TimeDisplay from "./TimeDisplay";
 
 const theme = createTheme({
   palette: {
@@ -23,27 +24,12 @@ function Home({ user, setUser }) {
   const [showForm, setShowForm] = useState(false);
   const [change, setChange] = useState(false);
   const [search, setSearch] = useState("");
-  const [clockFace, setClockFace] = useState('')
-  const locale = 'en'
 
   let history = useHistory();
 
-  let now = new Date();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
-  let day = days[now.getDay()];
-  
-  function handleForm(e) {
-    setShowForm(!showForm);
-  }
+    function handleForm(e) {
+      setShowForm(!showForm);
+    }
 
   useEffect(() => {
     fetch("/reminders")
@@ -54,17 +40,7 @@ function Home({ user, setUser }) {
       });
   }, [change]);
 
-  // Date and Time
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setClockFace(new Date()
-        .toLocaleString())
-    }, 1000)
-
-    return () => {
-      clearInterval(timer)
-    }
-  }, [])
+  
 
   // Logout 
   function handleLogout() {
@@ -120,13 +96,11 @@ function Home({ user, setUser }) {
           alt="logo"
         />
       </div>
-      <div className="date">
-        <div>
-          <h3 className="day">{day}</h3>
-          <h3>{clockFace}</h3>
-        </div>
-      </div>
-      <br />
+
+      {/* Date & Time Display */}
+      <TimeDisplay />
+
+      {/* Search Bar */}
       <div className="search-bar">
         <Search search={search} onNewSearch={setSearch} />
       </div>
@@ -247,7 +221,7 @@ function Home({ user, setUser }) {
           setChange={setChange}
         />
       ) : (
-        <p>User have no reminders</p>
+        <p>User has no reminders</p>
       )}
     </div>
   );

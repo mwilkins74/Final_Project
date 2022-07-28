@@ -124,16 +124,16 @@ span.emoji {
 
 /* Weekday, Date, Time Display */
 .date {
-  width: 15vmin;
+  width: 10vmin;
   background: #004AAD;
-  height: 15vmin;
+  height: 10vmin;
   color: #FF914D;
   border-radius: 10%;
   position: absolute;
   right: 40px;
   top: 40px;
   text-align: center;
-  padding: 90px 0;
+  padding: 45px 0;
 }
 
 .day {

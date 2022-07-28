@@ -83,6 +83,7 @@ function ReminderCard({
     <Card Card sx={{ minWidth: 275 }}>
       <CardContent
         className={design}
+
       >
         <span class="emoji">📍</span>
 
