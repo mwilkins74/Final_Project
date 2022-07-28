@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import EditForm from "./EditForm";
-// import CategoryColors from "./CategoryColors";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -29,6 +28,7 @@ function ReminderCard({
   reminders,
   setReminders,
   setUser,
+  type
 }) {
   
   function handleDelete() {
@@ -83,8 +83,7 @@ function ReminderCard({
   return (
     <Card Card sx={{ minWidth: 275 }}>
       <CardContent
-        className={!complete ? "incomplete" : "complete"}
-        // className="reminder"
+        className={type}
       >
         <span class="emoji">📍</span>
 
@@ -142,6 +141,7 @@ function ReminderCard({
             setReminders={setReminders}
           />
         ) : null}
+
         {/* Complete Button */}
         <Button
           onClick={handleComplete}

@@ -14,16 +14,12 @@ const theme = createTheme({
   },
 });
 
-function CategoryColors({ reminders, setReminders, className = "reminder" }) {
-  const [activeCategory, setActiveCategory] = useState(false);
-
-  // const [medical, setMedical] = useState(false);
-  const [family, setFamily] = useState(false);
-
-  function changeCategory(e) {
-    console.log(e.target);
-    setFamily(!family);
-  }
+function CategoryColors({ setType }) {
+  // const [cardType, setCardType] = useState("")
+  
+  // function categoryChange() {
+  //   setType(type)
+  // }
 
   return (
     <div class="dropdown">
@@ -39,22 +35,14 @@ function CategoryColors({ reminders, setReminders, className = "reminder" }) {
         sx={{ boxShadow: 3 }}
         style={{ backgroundColor: "#FF914D" }}
       >
-        Category
+        <strong>Category</strong>
       </Button>
-      <div class="dropdown-content">
-        <a onClick="changeColor('red')" className="medical">
-          Medical
-        </a>
-        <a onClick={changeCategory ? (className = "family") : ""}>Family</a>
-        <a className="fitness" onClick={changeCategory}>
-          Fitness
-        </a>
-        <a className="personal" onClick={changeCategory}>
-          Personal
-        </a>
-        <a className="other" onClick={changeCategory}>
-          Other
-        </a>
+      <div class="dropdown-content" >
+        <a className="medical" onChange={setType} >Medical</a>
+        <a className="family">Family</a>
+        <a className="fitness">Fitness</a>
+        <a className="personal">Personal</a>
+        <a className="other">Other</a>
       </div>
     </div>
   );

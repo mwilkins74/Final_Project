@@ -36,6 +36,7 @@ function ReminderList({ user, setUser, reminders, setReminders }) {
                     date={reminder.date}
                     time={reminder.time}
                     incomplete={reminder.incomplete}
+                    type={reminder.type}
                   />
                 </Item>
               </Grid>
