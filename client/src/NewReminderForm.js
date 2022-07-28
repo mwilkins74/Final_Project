@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
+// import CategoryColors from "./CategoryColors";
 
 const theme = createTheme({
   palette: {
@@ -16,6 +17,7 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [type, setType] = useState("");
   const [newReminder, setNewReminder] = useState();
 
   useEffect(() => {
@@ -39,6 +41,7 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
         address: address,
         date: date,
         time: time, 
+        type: type,
         user_id: user.id,
       }),
     })
@@ -104,6 +107,9 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
               onChange={(e) => setTime(e.target.value)}
             />
             <label class="form-label text-white" for="form2Example2"></label>
+
+            {/* Type Input */}
+            {/* <CategoryColors setType={setType} /> */}
           </div>
 
           <Button
