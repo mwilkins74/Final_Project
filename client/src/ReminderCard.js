@@ -83,7 +83,7 @@ function ReminderCard({
   return (
     <Card Card sx={{ minWidth: 275 }}>
       <CardContent
-        className={type}
+        className={!complete ? "incomplete" : "complete"}
       >
         <span class="emoji">📍</span>
 
