@@ -2,21 +2,6 @@
 Blue #004AAD
 Orange #FF914D */
 
-/* body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
-
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
-
-
 /* Login/Signup Screen */
 .Login {
   text-align: center;
@@ -53,7 +38,6 @@ Orange #FF914D */
 /* Ascending & Descending Button */
 .up-down {
   justify-content: left;
-
 }
 
 /* Arrow Emojis */
@@ -75,11 +59,15 @@ span.emojiArrow {
 }
 
 /* Reminder Cards */
-.cards {
+/* .cards {
   color: black;
   border: solid 1px;
   border-radius: 1px 0 3px 4px;
-}
+} */
+
+/* .reminder {
+  background-color: lightgrey;
+} */
 
 /* Thumb Tack Emoji */
 img.emojione {
@@ -145,10 +133,73 @@ span.emoji {
   right: 40px;
   top: 40px;
   text-align: center;
-  padding: 45px 0;
+  padding: 90px 0;
 }
 
 .day {
   color: white;
+
 }
 
+/* Category Dropdown */
+.dropbtn {
+  background-color: #04AA6D;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  position: absolute;
+  top: -50px;
+  right: -150px;
+  border-radius: 50%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: -40px;
+  right: -150px;
+  background-color: rgba(0, 0, 0, .3);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 20%;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.medical {
+  background-color: rgb(246, 104, 104);
+}
+
+.family {
+  background-color: lightblue;
+}
+
+.fitness {
+  background-color: lightgoldenrodyellow;
+}
+
+.personal {
+  background-color: lightgreen;
+}
+
+.other {
+  background-color: rgb(251, 77, 251);
+}

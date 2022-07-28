@@ -77,7 +77,7 @@ function LoginForm({ setUser }) {
             {isLoading ? "Loading..." : "Login"}
           </Button>
           {errors.map((err) => (
-            <alert key={err}>"Invalid information"</alert>
+            {err}>"Invalid information"
           ))}
         </form>
       </div>
