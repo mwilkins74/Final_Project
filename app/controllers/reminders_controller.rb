@@ -43,9 +43,6 @@ class RemindersController < ApplicationController
        render json: Reminder.order(:date)
     end
 
-    # def reminder_dates
-    #     Reminder.find(params[:date])
-    # end
 
     private
 
@@ -54,6 +51,6 @@ class RemindersController < ApplicationController
     end
 
     def reminder_params
-        params.permit(:title, :address, :date, :user_id, :time)
+        params.permit(:title, :address, :date, :user_id, :time, :design)
     end
 end

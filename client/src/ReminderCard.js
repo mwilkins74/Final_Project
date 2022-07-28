@@ -23,12 +23,11 @@ function ReminderCard({
   time,
   incomplete,
   address,
-  category,
+  design,
   reminder,
   reminders,
   setReminders,
   setUser,
-  type
 }) {
   
   function handleDelete() {
@@ -83,7 +82,7 @@ function ReminderCard({
   return (
     <Card Card sx={{ minWidth: 275 }}>
       <CardContent
-        className={type}
+        className={design}
       >
         <span class="emoji">📍</span>
 

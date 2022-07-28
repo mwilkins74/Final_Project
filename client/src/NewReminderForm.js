@@ -17,7 +17,7 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [type, setType] = useState("");
+  const [design, setDesign] = useState("");
   const [newReminder, setNewReminder] = useState();
 
   useEffect(() => {
@@ -29,6 +29,7 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
       });
   }, []);
 
+  // console.log(type)
   function handleNewReminder(e) {
     e.preventDefault();
     fetch("/reminders", {
@@ -41,7 +42,7 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
         address: address,
         date: date,
         time: time, 
-        type: type,
+        design: design,
         user_id: user.id,
       }),
     })
@@ -107,11 +108,46 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
               onChange={(e) => setTime(e.target.value)}
             />
             <label class="form-label text-white" for="form2Example2"></label>
-
-            {/* Type Input */}
-            {/* <CategoryColors setType={setType} /> */}
           </div>
-
+          {/* Type Input */}
+          <div class="dropdown">
+            <style type="text/css">
+              {`
+    .btn-btn {
+      color: black;
+    `}
+            </style>
+            {/* <Button
+              variant="btn"
+              theme={theme}
+              sx={{ boxShadow: 3 }}
+              style={{ backgroundColor: "#FF914D" }}
+            >
+              <strong>Category</strong>
+            </Button>
+             */}
+            <div>
+              <select onChange={(e) => setDesign(e.target.value)}>
+                <option className="medical" value="medical">
+                  Medical
+                </option>
+                <option className="family" value="family">
+                  Family
+                </option>
+                <option className="fitness" value="fitness">
+                  Fitness
+                </option>
+                <option className="personal" value="personal">
+                  Personal
+                </option>
+                <option className="other" value="other">
+                  Other
+                </option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <br />
           <Button
             type="submit"
             variant="btn"
