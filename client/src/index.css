@@ -185,7 +185,7 @@ span.emoji {
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 .medical {
-  background-color: red;
+  background-color: rgb(253, 120, 120);
 }
 
 .family {
@@ -201,5 +201,5 @@ span.emoji {
 }
 
 .other {
-  background-color: rgb(251, 77, 251);
+  background-color: rgb(251, 136, 251);
 }
