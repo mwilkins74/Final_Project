@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import EditForm from "./EditForm";
+// import CategoryColors from "./CategoryColors";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
-// import { styled } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
@@ -81,9 +81,13 @@ function ReminderCard({
   }, []);
 
   return (
-    <Card Card sx={{ minWidth: 275 }} >
-      <CardContent className={!complete ? "incomplete" : "complete"}>
+    <Card Card sx={{ minWidth: 275 }}>
+      <CardContent
+        className={!complete ? "incomplete" : "complete"}
+        // className="reminder"
+      >
         <span class="emoji">📍</span>
+
         <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
           <strong>{title}</strong>
         </Typography>
@@ -96,6 +100,8 @@ function ReminderCard({
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           {updateTime}
         </Typography>
+        {/* <CategoryColors /> */}
+        <br />
         <style type="text/css">
           {`
     .btn-btn {
@@ -103,6 +109,7 @@ function ReminderCard({
     `}
         </style>
         <br />
+
         {/* Delete Button */}
         <Button
           onClick={() => handleDelete()}
@@ -113,6 +120,7 @@ function ReminderCard({
         >
           💣
         </Button>
+
         {/* Edit Form */}
         <Button
           onClick={editForm}

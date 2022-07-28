@@ -3,8 +3,6 @@ import { useHistory } from "react-router-dom";
 import ReminderList from "./ReminderList";
 import NewReminderForm from "./NewReminderForm";
 import Search from "./Search";
-// import ReminderListAgain from "./ReminderListAgain";
-// import EditForm from "./EditForm";
 
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
