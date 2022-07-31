@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
-// import CategoryColors from "./CategoryColors";
 
 const theme = createTheme({
   palette: {

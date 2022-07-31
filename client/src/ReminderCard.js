@@ -143,7 +143,7 @@ function ReminderCard({
         ) : null}
 
         {/* Complete Button */}
-        <Button
+        {/* <Button
           onClick={handleComplete}
           variant="btn"
           theme={theme}
@@ -151,7 +151,7 @@ function ReminderCard({
           style={{ backgroundColor: "#FF914D" }}
         >
           {complete ? "✔" : "Done!"}
-        </Button>
+        </Button> */}
       </CardContent>
     </Card>
   );

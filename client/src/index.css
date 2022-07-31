@@ -1,6 +1,7 @@
 /* App Colors
-Blue #004AAD
-Orange #FF914D */
+Blue - #004AAD
+Orange - #FF914D */
+
 
 /* Login/Signup Screen */
 .Login {
@@ -184,22 +185,29 @@ span.emoji {
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
+/* Card Colors */
+/* Teal - #BADCC5 */
+/* Pink - #FFC0C0 */
+/* Salmon - #FF9D80 */
+/* Yellow - #FEDC2B */
+/* Cyan - #75CABB */
+
 .medical {
-  background-color: rgb(253, 120, 120);
+  background-color: #9cdbb0;
 }
 
 .family {
-  background-color: lightblue;
+  background-color: #FFC0C0;
 }
 
 .fitness {
-  background-color: lightgoldenrodyellow;
+  background-color:  #FEDC2B;
 }
 
 .personal {
-  background-color: lightgreen;
+  background-color: #FF9D80;
 }
 
 .other {
-  background-color: rgb(251, 136, 251);
+  background-color: #75CABB;
 }
