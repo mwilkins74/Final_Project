@@ -108,6 +108,7 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
             />
             <label class="form-label text-white" for="form2Example2"></label>
           </div>
+          
           {/* Type Input */}
           <div class="dropdown">
             <style type="text/css">
@@ -116,15 +117,6 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
       color: black;
     `}
             </style>
-            {/* <Button
-              variant="btn"
-              theme={theme}
-              sx={{ boxShadow: 3 }}
-              style={{ backgroundColor: "#FF914D" }}
-            >
-              <strong>Category</strong>
-            </Button>
-             */}
             <div>
               <select onChange={(e) => setDesign(e.target.value)}>
                 <option className="medical" value="medical">

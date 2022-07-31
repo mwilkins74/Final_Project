@@ -117,7 +117,7 @@ function ReminderCard({
           sx={{ boxShadow: 3 }}
           style={{ backgroundColor: "#FF914D" }}
         >
-          💣
+          Delete
         </Button>
 
         {/* Edit Form */}
