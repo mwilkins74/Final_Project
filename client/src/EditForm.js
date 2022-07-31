@@ -17,7 +17,6 @@ function EditForm({ user, reminder, reminders, setReminders }) {
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  // const [category, setCategory] = useState("");
     
     function handleReminderEdit() {
       fetch(`/reminders/${reminder.id}`, {
