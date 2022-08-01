@@ -52,7 +52,6 @@ function ReminderCard({
 
   const adjustTime = () => {
     let time = reminder.time;
-    // console.log(time);
     time = time.split(":");
 
     let hours = Number(time[0]);
@@ -80,80 +79,90 @@ function ReminderCard({
   }, []);
 
   return (
-    <Card Card sx={{ minWidth: 275 }}>
-      <CardContent
-        className={design}
+    <div>
+      <div>
+        <Card
+          Card
+          sx={{ minWidth: 275 }}
+          class="card__face card__face--front"
+        >
+          <CardContent className={design}>
+            <span class="emoji">📍</span>
 
-      >
-        <span class="emoji">📍</span>
-
-        <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
-          <strong>{title}</strong>
-        </Typography>
-        <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
-          <strong>{address}</strong>
-        </Typography>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {date}
-        </Typography>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {updateTime}
-        </Typography>
-        {/* <CategoryColors /> */}
-        <br />
-        <style type="text/css">
-          {`
+            <Typography
+              sx={{ fontSize: 20 }}
+              color="text.secondary"
+              gutterBottom
+            >
+              <strong>{title}</strong>
+            </Typography>
+            <Typography
+              sx={{ fontSize: 16 }}
+              color="text.secondary"
+              gutterBottom
+            >
+              <strong>{address}</strong>
+            </Typography>
+            <Typography
+              sx={{ fontSize: 14 }}
+              color="text.secondary"
+              gutterBottom
+            >
+              {date}
+            </Typography>
+            <Typography
+              sx={{ fontSize: 14 }}
+              color="text.secondary"
+              gutterBottom
+            >
+              {updateTime}
+            </Typography>
+            <br />
+            <style type="text/css">
+              {`
     .btn-btn {
       color: black;
     `}
-        </style>
-        <br />
+            </style>
+            <br />
 
-        {/* Delete Button */}
-        <Button
-          onClick={() => handleDelete()}
-          variant="btn"
-          theme={theme}
-          sx={{ boxShadow: 3 }}
-          style={{ backgroundColor: "#FF914D" }}
-        >
-          💣
-        </Button>
+            {/* Delete Button */}
+            <Button
+              onClick={() => handleDelete()}
+              variant="btn"
+              theme={theme}
+              sx={{ boxShadow: 3 }}
+              style={{ backgroundColor: "#FF914D" }}
+            >
+              Delete
+            </Button>
 
-        {/* Edit Form */}
-        <Button
-          onClick={editForm}
-          variant="btn"
-          theme={theme}
-          sx={{ boxShadow: 3 }}
-          style={{ backgroundColor: "#FF914D" }}
-        >
-          {showEditForm ? "Hide Edit" : "Edit"}
-        </Button>
-        <br />
-        <br />
-        <br />
-        {showEditForm ? (
-          <EditForm
-            user={user}
-            reminder={reminder}
-            reminders={reminders}
-            setReminders={setReminders}
-          />
-        ) : null}
-
-        {/* Complete Button */}
-        {/* <Button
-          onClick={handleComplete}
-          variant="btn"
-          theme={theme}
-          sx={{ boxShadow: 3 }}
-          style={{ backgroundColor: "#FF914D" }}
-        >
-          {complete ? "✔" : "Done!"}
-        </Button> */}
-      </CardContent>
-    </Card>
+            {/* Edit Form */}
+            <Button
+              onClick={editForm}
+              variant="btn"
+              theme={theme}
+              sx={{ boxShadow: 3 }}
+              style={{ backgroundColor: "#FF914D" }}
+            >
+              {showEditForm ? "Hide Edit" : "Edit"}
+            </Button>
+            <br />
+            <br />
+            <br />
+            {showEditForm ? (
+              <EditForm
+                user={user}
+                reminder={reminder}
+                reminders={reminders}
+                setReminders={setReminders}
+              />
+            ) : null}
+          </CardContent>
+          <div class="card__face card__face--back"></div>
+        </Card>
+      </div>
+    </div>
   );
 }
 

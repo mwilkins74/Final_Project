@@ -17,6 +17,9 @@ function EditForm({ user, reminder, reminders, setReminders }) {
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [design, setDesign] = useState("");
+  const [newReminder, setNewReminder] = useState();
+
     
     function handleReminderEdit() {
       fetch(`/reminders/${reminder.id}`, {
@@ -27,6 +30,7 @@ function EditForm({ user, reminder, reminders, setReminders }) {
           address: address,
           date: date,
           time: time,
+          design: design,
         }),
       })
         .then((r) => r.json())
@@ -95,6 +99,26 @@ function EditForm({ user, reminder, reminders, setReminders }) {
             <label class="form-label text-white" for="form2Example2">
               <strong>Time</strong>
             </label>
+          </div>
+
+          <div>
+            <select onChange={(e) => setDesign(e.target.value)}>
+              <option className="medical" value="medical">
+                Medical
+              </option>
+              <option className="family" value="family">
+                Family
+              </option>
+              <option className="fitness" value="fitness">
+                Fitness
+              </option>
+              <option className="personal" value="personal">
+                Personal
+              </option>
+              <option className="other" value="other">
+                Other
+              </option>
+            </select>
           </div>
 
           {/* Submit Button */}

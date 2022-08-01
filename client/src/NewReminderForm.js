@@ -11,12 +11,13 @@ const theme = createTheme({
   },
 });
 
-function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
+function NewReminderForm({ user, setRem, setChange }) {
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [design, setDesign] = useState("");
+  // const [link, setLink] = useState("");
   const [newReminder, setNewReminder] = useState();
 
   useEffect(() => {
@@ -108,6 +109,20 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
             />
             <label class="form-label text-white" for="form2Example2"></label>
           </div>
+
+          {/* Link Input
+          <div class="form-outline mb-4">
+            <input
+              type="link"
+              src={link}
+              id="form2Example2"
+              class="form-control"
+              placeholder="Enter Link"
+              onChange={(e) => setLink(e.target.value)}
+            />
+            <label class="form-label text-white" for="form2Example2"></label>
+          </div> */}
+
           {/* Type Input */}
           <div class="dropdown">
             <style type="text/css">
@@ -116,15 +131,6 @@ function NewReminderForm({ user, reminders, setReminders, setRem, setChange }) {
       color: black;
     `}
             </style>
-            {/* <Button
-              variant="btn"
-              theme={theme}
-              sx={{ boxShadow: 3 }}
-              style={{ backgroundColor: "#FF914D" }}
-            >
-              <strong>Category</strong>
-            </Button>
-             */}
             <div>
               <select onChange={(e) => setDesign(e.target.value)}>
                 <option className="medical" value="medical">

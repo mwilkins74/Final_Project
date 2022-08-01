@@ -17,6 +17,16 @@ class UsersController < ApplicationController
         render json: user, status: :created
     end
 
+    # def create 
+    #     @user = User.new(user_params)
+    #     if @user.save
+    #         UseMailer.with(user: @user).welcome_email.deliver_later
+    #         render json: @user, status: :accepted
+    #     else
+    #         render json: {errors: @user.errors.full_messages}, status: :unprocessable_entity
+    #     end
+    # end
+
     private 
 
     def user_params
