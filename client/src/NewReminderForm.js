@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./index.css";
 
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
@@ -41,7 +42,7 @@ function NewReminderForm({ user, setRem, setChange }) {
         title: title,
         address: address,
         date: date,
-        time: time, 
+        time: time,
         design: design,
         user_id: user.id,
       }),
@@ -50,121 +51,129 @@ function NewReminderForm({ user, setRem, setChange }) {
       .then((res) => {
         console.log(res);
         setNewReminder(res);
-      }).then((change) => setChange(!change))
+      })
+      .then((change) => setChange(!change))
       .catch((err) => console.error(err));
   }
 
   return (
-    <div class="row mb-4">
-      <div class="col d-flex justify-content-center">
-        <form onSubmit={(e) => handleNewReminder(e)}>
-          {/* Title */}
-          <div class="form-outline mb-4">
-            <input
-              type="title"
-              value={title}
-              placeholder="Please enter Title"
-              onChange={(e) => setTitle(e.target.value)}
-              id="form2Example1"
-              class="form-control"
-            />
-            <label class="form-label text-white" for="form2Example1"></label>
-          </div>
+    <div class="container">
+          <div class="inputs">
+            <form onSubmit={(e) => handleNewReminder(e)}>
+              {/* Title */}
+              <div>
+                <input
+                  type="title"
+                  value={title}
+                  placeholder="Please enter Title"
+                  onChange={(e) => setTitle(e.target.value)}
+                  // id="form2Example1"
+                  // class="form-control"
+                />
+                <label
+                // class="form-label text-white"
+                // for="form2Example1"
+                ></label>
+              </div>
+              <br/>
 
-          {/* Address Input */}
-          <div class="form-outline mb-4">
-            <input
-              type="address"
-              value={address}
-              id="form2Example2"
-              class="form-control"
-              placeholder="Enter Address"
-              onChange={(e) => setAddress(e.target.value)}
-            />
-            <label class="form-label text-white" for="form2Example2"></label>
-          </div>
+              {/* Address Input */}
+              <div>
+                <input
+                  type="address"
+                  value={address}
+                  placeholder="Enter Address"
+                  onChange={(e) => setAddress(e.target.value)}
+                  // id="form2Example2"
+                  // class="form-control"
+                />
+                <label
+                  class="form-label text-white"
+                  for="form2Example2"
+                ></label>
+              </div>
+              <br/>
 
-          {/* Date Input */}
-          <div class="form-outline mb-4">
-            <input
-              type="date"
-              value={date}
-              id="form2Example2"
-              class="form-control"
-              placeholder="Enter Date"
-              onChange={(e) => setDate(e.target.value)}
-            />
-            <label class="form-label text-white" for="form2Example2"></label>
-          </div>
+              {/* Date Input */}
+              <div>
+                <input
+                  type="date"
+                  value={date}
+                  placeholder="Enter Date"
+                  onChange={(e) => setDate(e.target.value)}
+                  // id="form2Example2"
+                  // class="form-control"
+                />
+                <label
+                // class="form-label text-white"
+                // for="form2Example2"
+                ></label>
+              </div>
+              <br/>
 
-          {/* Time Input */}
-          <div class="form-outline mb-4">
-            <input
-              type="time"
-              value={time}
-              id="form2Example2"
-              class="form-control"
-              placeholder="Enter Time"
-              onChange={(e) => setTime(e.target.value)}
-            />
-            <label class="form-label text-white" for="form2Example2"></label>
-          </div>
+              {/* Time Input */}
+              <div>
+                <input
+                  type="time"
+                  value={time}
+                  placeholder="Enter Time"
+                  onChange={(e) => setTime(e.target.value)}
+                  // id="form2Example2"
+                  // class="form-control"
+                />
+                <label
+                  // class="form-label text-white"
+                  // for="form2Example2"
+                ></label>
+              </div>
+              <br/>
 
-          {/* Link Input
-          <div class="form-outline mb-4">
-            <input
-              type="link"
-              src={link}
-              id="form2Example2"
-              class="form-control"
-              placeholder="Enter Link"
-              onChange={(e) => setLink(e.target.value)}
-            />
-            <label class="form-label text-white" for="form2Example2"></label>
-          </div> */}
-
-          {/* Type Input */}
-          <div class="dropdown">
-            <style type="text/css">
-              {`
+              {/* Type Input */}
+              <div class="dropdown">
+                <style type="text/css">
+                  {`
     .btn-btn {
       color: black;
     `}
-            </style>
-            <div>
-              <select onChange={(e) => setDesign(e.target.value)}>
-                <option className="medical" value="medical">
-                  Medical
-                </option>
-                <option className="family" value="family">
-                  Family
-                </option>
-                <option className="fitness" value="fitness">
-                  Fitness
-                </option>
-                <option className="personal" value="personal">
-                  Personal
-                </option>
-                <option className="other" value="other">
-                  Other
-                </option>
-              </select>
-            </div>
+                </style>
+                <div>
+                  <select onChange={(e) => setDesign(e.target.value)}>
+                    <option className="medical" value="medical">
+                      Medical
+                    </option>
+                    <option className="family" value="family">
+                      Family
+                    </option>
+                    <option className="fitness" value="fitness">
+                      Fitness
+                    </option>
+                    <option className="personal" value="personal">
+                      Personal
+                    </option>
+                    <option className="other" value="other">
+                      Other
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <br />
+              <br />
+              <Button
+                className="plus_reminder"
+                type="submit"
+                variant="btn"
+                theme={theme}
+                sx={{ boxShadow: 3 }}
+                style={{ backgroundColor: "lightblue" }}
+              >
+                <strong>+ Reminder</strong>
+              </Button>
+              <br/>
+              <br/>
+              <br/>
+            </form>
           </div>
-          <br />
-          <br />
-          <Button
-            type="submit"
-            variant="btn"
-            theme={theme}
-            sx={{ boxShadow: 3 }}
-            style={{ backgroundColor: "lightblue" }}
-          >
-            <strong>+ Reminder</strong>
-          </Button>
-        </form>
-      </div>
-    </div>
+        </div>
   );
 }
 
