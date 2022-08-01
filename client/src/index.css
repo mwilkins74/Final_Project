@@ -2,7 +2,6 @@
 Blue - #004AAD
 Orange - #FF914D */
 
-
 /* Login/Signup Screen */
 .Login {
   text-align: center;
@@ -31,6 +30,11 @@ Orange - #FF914D */
   background-attachment: fixed;
 }
 
+.logo {
+  /* border: 4px solid blue; */
+  /* height: 267px; */
+}
+
 .home-logo {
   height: 20vmin;
   border-radius: 10%;
@@ -38,12 +42,13 @@ Orange - #FF914D */
 
 /* Ascending & Descending Button */
 .up-down {
-  justify-content: left;
+  left: 40px;
+  top: 20px;
+  position: fixed;
 }
 
 /* Arrow Emojis */
 img.emojione {
-  /* Override any img styles to ensure Emojis are displayed inline */
   margin: 0px !important;
   display: inline !important;
   height: auto;
@@ -99,24 +104,66 @@ span.emoji {
 }
 
 /* Search Bar */
-.search-bar {
-  overflow: hidden;
-  background-color: white;
-  width: 400px;
-  height: 40px;
-  margin: 0 auto;
-  display: inline-block;
-  border: solid 1.5px;
+.search_form {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
 }
 
-.search-icon button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 20px;
+.input_search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.fa {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+.search_form:hover {
+  width: 300px;
   cursor: pointer;
+}
+
+.search_form:hover input {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.search_form:hover .fa {
+  background: #07051a;
+  color: white;
+  margin: 0 auto;
+  display: inline-block;
 }
 
 /* Weekday, Date, Time Display */
@@ -135,51 +182,21 @@ span.emoji {
 
 .day {
   color: white;
+  position: fixed;
+  right: 75px;
 
 }
 
-/* Category Dropdown */
-.dropbtn {
-  background-color: #04AA6D;
-  color: black;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  position: absolute;
-  top: -50px;
-  right: -150px;
-  border-radius: 50%;
+.clockFace {
+  width: 10vmin;
+  height: 20vmin;
+  color: #FF914D;
+  right: 40px;
+  top: 80px;
+  text-align: center;
+  padding: 30px 0;
+  position: fixed;
 }
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: -40px;
-  right: -150px;
-  background-color: rgba(0, 0, 0, .3);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 20%;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 /* Card Colors */
 /* Teal - #BADCC5 */
@@ -193,22 +210,23 @@ span.emoji {
 }
 
 .family {
-  background-color: #FFC0C0;
+  background-color: #ffc0c0;
 }
 
 .fitness {
-  background-color:  #FEDC2B;
+  background-color: #fedc2b;
 }
 
 .personal {
-  background-color: #FF9D80;
+  background-color: #ff9d80;
 }
 
 .other {
-  background-color: #75CABB;
+  background-color: #75cabb;
 }
 
-input {
+/* Forms */
+.form_inputs {
   background: #ecf0f3;
   padding: 10px;
   padding-left: 20px;
@@ -216,10 +234,9 @@ input {
   font-size: 14px;
   border-radius: 50px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
-  
 }
 
-input {
+.form_inputs {
   /* display: block; */
   width: 20vh;
   padding: 10;
@@ -235,8 +252,3 @@ input {
   outline: none;
   box-sizing: border-box;
 }
-
-
-
-
-

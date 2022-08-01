@@ -5,7 +5,6 @@ import "./index.css";
 import Login from "./Login/Login";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-// import OneSignal from "react-onesignal";
 
 function App() {
   const [user, setUser] = useState({});
