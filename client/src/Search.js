@@ -20,37 +20,46 @@ function Search({ onNewSearch }) {
   }
 
   return (
-    <form onSubmit={handleSearch}>
-      <div class="input-group rounded border border-dark">
-        <input
-          class="form-control rounded"
-          type="text"
-          id="search"
-          placeholder="Search..."
-          value={newSearch}
-          onChange={(e) => setNewSearch(e.target.value)}
-        />
-        <Button
-          class="input-group-text border-0 fas fa-search"
-          type="submit"
-          variant="btn"
-          theme={theme}
-          sx={{ boxShadow: 3 }}
-          style={{ backgroundColor: "lightblue" }}
-        >
-          🔎
-        </Button>
-        <Button
-          onClick={(e) => setNewSearch("")}
-          variant="btn"
-          theme={theme}
-          sx={{ boxShadow: 3 }}
-          style={{ backgroundColor: "#FF914D" }}
-        >
-          <strong>Clear</strong>
-        </Button>
+    <div >
+      <div >
+        <div >
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+          <form class="search_form" onSubmit={handleSearch}>
+            <div>
+              <br/>
+              <br/>
+              <input
+                class="input_search"
+                type="text"
+                placeholder="Search..."
+                value={newSearch}
+                onChange={(e) => setNewSearch(e.target.value)}
+              />
+              {/* <Button
+                class="input-group-text border-0 fas fa-search"
+                type="submit"
+                variant="btn"
+                theme={theme}
+                sx={{ boxShadow: 3 }}
+                style={{ backgroundColor: "lightblue" }}
+              >
+                🔎
+              </Button> */}
+              {/* <Button
+                onClick={(e) => setNewSearch("")}
+                variant="btn"
+                theme={theme}
+                sx={{ boxShadow: 3 }}
+                style={{ backgroundColor: "#FF914D" }}
+              >
+                <strong>Clear</strong>
+              </Button> */}
+              <i class="fa fa-search"></i>
+            </div>
+          </form>
+        </div>
       </div>
-    </form>
+    </div>
   );
 }
 

@@ -39,12 +39,12 @@ function EditForm({ user, reminder, reminders, setReminders }) {
 
   return (
     <div class="container">
-      <div class="inputs">
+      <div>
         <form onSubmit={handleReminderEdit}>
           {/* Title */}
           <div>
             <input
-              className="edits"
+              class="form_inputs"
               type="title"
               value={title}
               placeholder="Please enter Title"
@@ -59,7 +59,7 @@ function EditForm({ user, reminder, reminders, setReminders }) {
           {/* Address Input */}
           <div>
             <input
-              className="edits"
+              class="form_inputs"
               type="address"
               value={address}
               placeholder="Enter Address"
@@ -74,7 +74,7 @@ function EditForm({ user, reminder, reminders, setReminders }) {
           {/* Date Input */}
           <div>
             <input
-              className="edits"
+              class="form_inputs"
               type="date"
               value={date}
               placeholder="Enter Date"
@@ -89,7 +89,7 @@ function EditForm({ user, reminder, reminders, setReminders }) {
           {/* Time Input */}
           <div>
             <input
-              className="edits"
+              class="form_inputs"
               type="time"
               value={time}
               placeholder="Enter Time"

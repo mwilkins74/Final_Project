@@ -31,10 +31,10 @@ function TimeDisplay() {
 
   return (
     <div>
-      <div className="date">
-        <div>
-          <h4 className="day">{day}</h4>
-          <h4>{clockFace}</h4>
+      <div className="date_container">
+        <div className="date">
+          <h2 className="day">{day}</h2>
+          <h3 className="clockFace">{clockFace}</h3>
         </div>
       </div>
       <br />
