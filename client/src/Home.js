@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import ReminderList from "./ReminderList";
 import NewReminderForm from "./NewReminderForm";
 import Search from "./Search";
+import NavBar from "./NavBar";
 
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
@@ -39,8 +40,6 @@ function Home({ user, setUser }) {
         setReminders(data);
       });
   }, [change]);
-
-  
 
   // Logout 
   function handleLogout() {
@@ -97,6 +96,7 @@ function Home({ user, setUser }) {
         />
       </div>
 
+      {/* <NavBar /> */}
       {/* Date & Time Display */}
       <TimeDisplay />
 
