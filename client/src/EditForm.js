@@ -38,68 +38,68 @@ function EditForm({ user, reminder, reminders, setReminders }) {
     }
 
   return (
-    <div class="row mb-4">
-      <div class="col d-flex justify-content-center">
+    <div class="container">
+      <div class="inputs">
         <form onSubmit={handleReminderEdit}>
           {/* Title */}
-          <div class="form-outline mb-4">
+          <div>
             <input
+              className="edits"
               type="title"
               value={title}
               placeholder="Please enter Title"
               onChange={(e) => setTitle(e.target.value)}
-              id="form2Example1"
-              class="form-control"
+              // id="form2Example1"
+              // class="form-control"
             />
-            <label class="form-label text-white" for="form2Example1">
-              <strong>Title</strong>
-            </label>
+            <label></label>
           </div>
+          <br />
 
           {/* Address Input */}
-          <div class="form-outline mb-4">
+          <div>
             <input
+              className="edits"
               type="address"
               value={address}
-              id="form2Example2"
-              class="form-control"
               placeholder="Enter Address"
               onChange={(e) => setAddress(e.target.value)}
+              // id="form2Example2"
+              // class="form-control"
             />
-            <label class="form-label text-white" for="form2Example2">
-              <strong>Address</strong>
-            </label>
+            <label></label>
           </div>
+          <br />
 
           {/* Date Input */}
-          <div class="form-outline mb-4">
+          <div>
             <input
+              className="edits"
               type="date"
               value={date}
-              id="form2Example2"
-              class="form-control"
               placeholder="Enter Date"
               onChange={(e) => setDate(e.target.value)}
+              // id="form2Example2"
+              // class="form-control"
             />
-            <label class="form-label text-white" for="form2Example2">
-              <strong>Date</strong>
-            </label>
+            <label></label>
           </div>
+          <br />
 
           {/* Time Input */}
-          <div class="form-outline mb-4">
+          <div>
             <input
+              className="edits"
               type="time"
               value={time}
-              id="form2Example2"
-              class="form-control"
               placeholder="Enter Time"
               onChange={(e) => setTime(e.target.value)}
+              // id="form2Example2"
+              // class="form-control"
             />
-            <label class="form-label text-white" for="form2Example2">
-              <strong>Time</strong>
-            </label>
+            <label></label>
           </div>
+          <br />
 
           <div>
             <select onChange={(e) => setDesign(e.target.value)}>
