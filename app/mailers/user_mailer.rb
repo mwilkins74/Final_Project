@@ -1,4 +1,4 @@
-class UserMailer < ApplicationMailer
+class  < ApplicationMailer
     default from: "app.reminder.me86@gmail.com"
 
     def welcome_email

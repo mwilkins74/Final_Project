@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :reminder_contacts
 
   get "/me", to: "users#show"
-  get "/reminders", to: "reminders#index"
+  # get "/reminders", to: "reminders#show"
   get "/desc-reminders", to: "reminders#desc_reminders"
   get "/asc-reminders", to: "reminders#asc_reminders"
   get "/reminder_dates", to: "reminders#reminder_dates"

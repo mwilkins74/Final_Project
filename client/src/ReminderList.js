@@ -1,9 +1,11 @@
 import React from "react";
 import ReminderCard from "./ReminderCard";
+import "./index.css";
+
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-import "./index.css";
+
 
 const Item = styled(Card)(({ theme }) => ({
   // padding: theme.spacing(1),
@@ -47,3 +49,4 @@ function ReminderList({ user, setUser, reminders, setReminders }) {
 }
 
 export default ReminderList;
+

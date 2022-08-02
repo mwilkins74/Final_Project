@@ -94,15 +94,6 @@ span.emoji {
   border-radius: 1px 0 3px 4px;
 }
 
-/* Card Styling */
-.incomplete {
-  background-color: lightblue;
-}
-
-.complete {
-  background-color: pink;
-}
-
 /* Search Bar */
 .search_form {
   position: relative;
@@ -168,22 +159,22 @@ span.emoji {
 
 /* Weekday, Date, Time Display */
 .date {
-  width: 10vmin;
+  width: 11vmin;
   background: #004AAD;
-  height: 10vmin;
+  height: 11vmin;
   color: #FF914D;
   border-radius: 10%;
-  position: absolute;
+  position: fixed;
   right: 40px;
   top: 40px;
   text-align: center;
-  padding: 30px 0;
+  padding: 10px 0;
 }
 
 .day {
   color: white;
   position: fixed;
-  right: 75px;
+  right: 58px;
 
 }
 
@@ -191,8 +182,8 @@ span.emoji {
   width: 10vmin;
   height: 20vmin;
   color: #FF914D;
-  right: 40px;
-  top: 80px;
+  right: 45px;
+  top: 55px;
   text-align: center;
   padding: 30px 0;
   position: fixed;
@@ -231,13 +222,12 @@ span.emoji {
   padding: 10px;
   padding-left: 20px;
   height: 50px;
-  font-size: 14px;
+  font-size: 20px;
   border-radius: 50px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
 
 .form_inputs {
-  /* display: block; */
   width: 20vh;
   padding: 10;
   border: none;

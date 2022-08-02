@@ -12,23 +12,22 @@ const theme = createTheme({
   },
 });
 
-function NewReminderForm({ user, setRem, setChange }) {
+function NewReminderForm({ user, reminders, setRem, setChange }) {
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [design, setDesign] = useState("");
-  // const [link, setLink] = useState("");
   const [newReminder, setNewReminder] = useState();
 
-  useEffect(() => {
-    fetch("/reminders")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setRem(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("/reminders")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setRem(data);
+  //     });
+  // }, []);
 
   // console.log(type)
   function handleNewReminder(e) {

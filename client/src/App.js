@@ -31,7 +31,7 @@ function App() {
                 alt="logo"
               />
             </div>
-            <Login setUser={user} />
+            <Login setUser={setUser} />
           </Route>
           <Route path="/home">
             <Home user={user} setUser={setUser} />
