@@ -21,7 +21,6 @@ function SignupForm({ setUser }) {
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmitSignUp(e) {
-    console.log(e.target)
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
@@ -43,13 +42,14 @@ function SignupForm({ setUser }) {
         
           setUser(user)
         })
-      ;
+          ;
+        setIsLoading(!isLoading);
         setEmail("");
         setPassword("");
         setPasswordConfirmation("");
         history.push("/home");
-        console.log(e.target);
-        console.log(email)
+        // console.log(e.target);
+        // console.log(email)
 
       } else {
         res.json().then((err) => setErrors(err.errors));
@@ -81,6 +81,7 @@ function SignupForm({ setUser }) {
           <div class="form-outline mb-4">
             <input
               type="password"
+              value={password}
               placeholder="Enter Password"
               id="form2Example2"
               class="form-control"
@@ -93,6 +94,7 @@ function SignupForm({ setUser }) {
             <br />
             <input
               type="password"
+              value={passwordConfirmation}
               placeholder="Re-enter Password"
               id="form2Example3"
               class="form-control"
@@ -107,7 +109,8 @@ function SignupForm({ setUser }) {
             value="Submit"
             variant="contained"
             theme={theme}
-          >Submit
+          >
+            Submit
           </Button>
         </form>
       </div>

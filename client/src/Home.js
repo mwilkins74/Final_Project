@@ -32,14 +32,23 @@ function Home({ user, setUser }) {
       setShowForm(!showForm);
     }
 
-  useEffect(() => {
-    fetch("/reminders")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setReminders(data);
-      });
-  }, [change]);
+  // useEffect(() => {
+  //   fetch(`/reminders/${user.id}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setReminders(data);
+  //     });
+  // }, [change]);
+
+   useEffect(() => {
+     fetch("/me")
+       .then((response) => response.json())
+       .then((data) => {
+         console.log(data);
+         setReminders(data.reminders);
+       });
+   }, [change]);
 
   // Logout 
   function handleLogout() {

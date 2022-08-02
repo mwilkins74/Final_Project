@@ -29,7 +29,6 @@ function ReminderCard({
   setReminders,
   setUser,
 }) {
-  
   function handleDelete() {
     fetch(`/my-reminders/${reminder.id}`, { method: "DELETE" }).then((res) =>
       res.json().then((data) => {
@@ -70,7 +69,7 @@ function ReminderCard({
     timeValue += minutes < 10 ? ":0" + minutes : ":" + minutes;
     timeValue += hours >= 12 ? " P.M." : " A.M.";
 
-    setUpdateTime(timeValue)
+    setUpdateTime(timeValue);
   };
 
   useEffect(() => {
@@ -81,11 +80,7 @@ function ReminderCard({
   return (
     <div>
       <div>
-        <Card
-          Card
-          sx={{ minWidth: 275 }}
-          class="card__face card__face--front"
-        >
+        <Card Card sx={{ minWidth: 275 }} class="card__face card__face--front">
           <CardContent className={design}>
             <span class="emoji">📍</span>
 
@@ -125,18 +120,6 @@ function ReminderCard({
     `}
             </style>
             <br />
-
-            {/* Delete Button */}
-            <Button
-              onClick={() => handleDelete()}
-              variant="btn"
-              theme={theme}
-              sx={{ boxShadow: 3 }}
-              style={{ backgroundColor: "#FF914D" }}
-            >
-              Delete
-            </Button>
-
             {/* Edit Form */}
             <Button
               onClick={editForm}
@@ -145,7 +128,20 @@ function ReminderCard({
               sx={{ boxShadow: 3 }}
               style={{ backgroundColor: "#FF914D" }}
             >
-              {showEditForm ? "Hide Edit" : "Edit"}
+              <strong>{showEditForm ? "Hide Edit" : "Edit"}</strong>
+            </Button>
+            <br />
+            <br />
+            
+            {/* Delete Button */}
+            <Button
+              onClick={() => handleDelete()}
+              variant="btn"
+              theme={theme}
+              sx={{ boxShadow: 3 }}
+              style={{ backgroundColor: "#FF914D" }}
+            >
+              <strong>Delete</strong>
             </Button>
             <br />
             <br />
