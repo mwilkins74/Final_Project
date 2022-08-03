@@ -20,16 +20,6 @@ function NewReminderForm({ user, reminders, setRem, setChange }) {
   const [design, setDesign] = useState("");
   const [newReminder, setNewReminder] = useState();
 
-  // useEffect(() => {
-  //   fetch("/reminders")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setRem(data);
-  //     });
-  // }, []);
-
-  // console.log(type)
   function handleNewReminder(e) {
     e.preventDefault();
     fetch("/reminders", {
@@ -67,13 +57,7 @@ function NewReminderForm({ user, reminders, setRem, setChange }) {
               value={title}
               placeholder="Please enter Title"
               onChange={(e) => setTitle(e.target.value)}
-              // id="form2Example1"
-              // class="form-control"
             />
-            <label
-            // class="form-label text-white"
-            // for="form2Example1"
-            ></label>
           </div>
           <br />
 

@@ -49,10 +49,8 @@ function EditForm({ user, reminder, reminders, setReminders }) {
               value={title}
               placeholder="Please enter Title"
               onChange={(e) => setTitle(e.target.value)}
-              // id="form2Example1"
-              // class="form-control"
             />
-            <label></label>
+
           </div>
           <br />
 
@@ -64,10 +62,8 @@ function EditForm({ user, reminder, reminders, setReminders }) {
               value={address}
               placeholder="Enter Address"
               onChange={(e) => setAddress(e.target.value)}
-              // id="form2Example2"
-              // class="form-control"
             />
-            <label></label>
+
           </div>
           <br />
 
@@ -79,10 +75,8 @@ function EditForm({ user, reminder, reminders, setReminders }) {
               value={date}
               placeholder="Enter Date"
               onChange={(e) => setDate(e.target.value)}
-              // id="form2Example2"
-              // class="form-control"
             />
-            <label></label>
+
           </div>
           <br />
 
@@ -94,10 +88,7 @@ function EditForm({ user, reminder, reminders, setReminders }) {
               value={time}
               placeholder="Enter Time"
               onChange={(e) => setTime(e.target.value)}
-              // id="form2Example2"
-              // class="form-control"
             />
-            <label></label>
           </div>
           <br />
 

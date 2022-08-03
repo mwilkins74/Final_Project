@@ -8,7 +8,6 @@ import Card from "@mui/material/Card";
 
 
 const Item = styled(Card)(({ theme }) => ({
-  // padding: theme.spacing(1),
   textAlign: "center",  
   color: theme.palette.text.secondary,
 }));
@@ -36,7 +35,6 @@ function ReminderList({ user, setUser, reminders, setReminders }) {
                     time={reminder.time}
                     incomplete={reminder.incomplete}
                     design={reminder.design}
-                    // link={reminder.link}
                   />
                 </Item>
               </Grid>

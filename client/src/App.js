@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Home";
-import "./index.css";
 import Login from "./Login/Login";
+import "./index.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
