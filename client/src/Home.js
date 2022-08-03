@@ -3,13 +3,14 @@ import { useHistory } from "react-router-dom";
 import ReminderList from "./ReminderList";
 import NewReminderForm from "./NewReminderForm";
 import Search from "./Search";
-import TimeDisplay from "./TimeDisplay";
 import "./index.css";
+import TimeDisplay from "./TimeDisplay";
 // import NavBar from "./NavBar";
 
 import Button from "@mui/material/Button";
-import { createTheme } from "@mui/material/styles";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import { createTheme } from "@mui/material/styles";
+
 
 const theme = createTheme({
   palette: {
@@ -33,6 +34,15 @@ function Home({ user, setUser }) {
   function handleForm(e) {
     setShowForm(!showForm);
   }
+
+  // useEffect(() => {
+  //   fetch(`/reminders/${user.id}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setReminders(data);
+  //     });
+  // }, [change]);
 
   useEffect(() => {
     fetch("/me")
@@ -100,61 +110,66 @@ function Home({ user, setUser }) {
             />
           </div>
 
+          {/* <NavBar /> */}
           {/* Date & Time Display */}
           <TimeDisplay />
 
           {/* Search Bar */}
-          <br />
-          <br />
+          <br/>
+          <br/>
           <div className="search-bar">
             <Search search={search} onNewSearch={setSearch} />
           </div>
 
           {/* Ascending & Descending Buttons */}
-          
-          <ButtonGroup
-            variant="contained"
-            aria-label="outlined primary button group"
-          >
-            <style type="text/css">
-            {`
-    .btn-btn {
-      color: black;
-      border: solid 1px;
-      border-radius: 1px 0 3px 4px;
-      
-    `}
-              </style>
-            <Button
-              class="up"
-              onClick={handleAsc}
-              variant="btn"
-              theme={theme}
-              sx={{ boxShadow: 3 }}
-              style={{
-                backgroundColor: "lightblue",
-              }}
-            >
-              <h6>
-                Ascending <br /> Order
-              </h6>
-            </Button>
-            <Button
-              class="down"
-              onClick={handleDesc}
-              variant="btn"
-              theme={theme}
-              sx={{ boxShadow: 3 }}
-              style={{
-                backgroundColor: "lightblue",
-              }}
-            >
-              <h6>
-                Descending <br /> Order
-              </h6>
-            </Button>
-          </ButtonGroup>
-          <br />
+              <ButtonGroup variant="contained" aria-label="outlined primary button group">
+              <Button
+                class="up"
+                onClick={handleAsc}
+                variant="btn"
+                theme={theme}
+                style={{
+                  backgroundColor: "lightblue",
+                
+                }}
+                sx={{
+                  position: "absolute",
+                  top: 20,
+                  left: "30%",
+                  zIndex: "tooltip",
+                  boxShadow: 3,
+                }}
+              >
+                <span class="emojiArrow">
+                  <h6>
+                    Ascending <br /> Order
+                  </h6>
+                </span>
+              </Button>
+              <Button
+                class="down"
+                onClick={handleDesc}
+                variant="btn"
+                theme={theme}
+                style={{
+                  backgroundColor: "lightblue",
+                 
+                }}
+                sx={{
+                  position: "absolute",
+                  top: 160,
+                  left: "30%",
+                  zIndex: "tooltip",
+                  boxShadow: 3,
+                }}
+              >
+                <span class="emojiArrow">
+                  <h6>
+                    Descending <br /> Order
+                  </h6>
+                </span>
+              </Button>
+              </ButtonGroup>
           <style type="text/css">
             {`
     .btn-btn {
@@ -164,7 +179,8 @@ function Home({ user, setUser }) {
       
     `}
           </style>
-          <br />
+          <br/>
+          <br/>
           <Button
             id="logout-btn"
             onClick={handleLogout}
