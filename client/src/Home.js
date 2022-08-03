@@ -3,12 +3,13 @@ import { useHistory } from "react-router-dom";
 import ReminderList from "./ReminderList";
 import NewReminderForm from "./NewReminderForm";
 import Search from "./Search";
+import TimeDisplay from "./TimeDisplay";
 import "./index.css";
 // import NavBar from "./NavBar";
 
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
-import TimeDisplay from "./TimeDisplay";
+import ButtonGroup from "@mui/material/ButtonGroup";
 
 const theme = createTheme({
   palette: {
@@ -29,29 +30,20 @@ function Home({ user, setUser }) {
 
   let history = useHistory();
 
-    function handleForm(e) {
-      setShowForm(!showForm);
-    }
+  function handleForm(e) {
+    setShowForm(!showForm);
+  }
 
-  // useEffect(() => {
-  //   fetch(`/reminders/${user.id}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setReminders(data);
-  //     });
-  // }, [change]);
+  useEffect(() => {
+    fetch("/me")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setReminders(data.reminders);
+      });
+  }, [change]);
 
-   useEffect(() => {
-     fetch("/me")
-       .then((response) => response.json())
-       .then((data) => {
-         console.log(data);
-         setReminders(data.reminders);
-       });
-   }, [change]);
-
-  // Logout 
+  // Logout
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
@@ -108,75 +100,61 @@ function Home({ user, setUser }) {
             />
           </div>
 
-          {/* <NavBar /> */}
           {/* Date & Time Display */}
           <TimeDisplay />
 
           {/* Search Bar */}
+          <br />
+          <br />
           <div className="search-bar">
             <Search search={search} onNewSearch={setSearch} />
           </div>
 
           {/* Ascending & Descending Buttons */}
-          <div>
-            <div>
-              <Button
-                class="up"
-                onClick={handleAsc}
-                variant="btn"
-                theme={theme}
-                style={{
-                  backgroundColor: "lightblue",
-                  // maxWidth: "110px",
-                  // maxHeight: "110px",
-                  // minWidth: "110px",
-                  // minHeight: "110px",
-                }}
-                sx={{
-                  position: "absolute",
-                  top: 20,
-                  left: "30%",
-                  zIndex: "tooltip",
-                  boxShadow: 3,
-                }}
-              >
-                <span class="emojiArrow">
-                  <h6>
-                    Ascending <br /> Order
-                  </h6>
-                </span>
-              </Button>
-            </div>
-            <br />
-            <div>
-              <Button
-                class="down"
-                onClick={handleDesc}
-                variant="btn"
-                theme={theme}
-                style={{
-                  backgroundColor: "lightblue",
-                  // maxWidth: "130px",
-                  // maxHeight: "130px",
-                  // minWidth: "130px",
-                  // minHeight: "130px",
-                }}
-                sx={{
-                  position: "absolute",
-                  top: 160,
-                  left: "30%",
-                  zIndex: "tooltip",
-                  boxShadow: 3,
-                }}
-              >
-                <span class="emojiArrow">
-                  <h6>
-                    Descending <br /> Order
-                  </h6>
-                </span>
-              </Button>
-            </div>
-          </div>
+          
+          <ButtonGroup
+            variant="contained"
+            aria-label="outlined primary button group"
+          >
+            <style type="text/css">
+            {`
+    .btn-btn {
+      color: black;
+      border: solid 1px;
+      border-radius: 1px 0 3px 4px;
+      
+    `}
+              </style>
+            <Button
+              class="up"
+              onClick={handleAsc}
+              variant="btn"
+              theme={theme}
+              sx={{ boxShadow: 3 }}
+              style={{
+                backgroundColor: "lightblue",
+              }}
+            >
+              <h6>
+                Ascending <br /> Order
+              </h6>
+            </Button>
+            <Button
+              class="down"
+              onClick={handleDesc}
+              variant="btn"
+              theme={theme}
+              sx={{ boxShadow: 3 }}
+              style={{
+                backgroundColor: "lightblue",
+              }}
+            >
+              <h6>
+                Descending <br /> Order
+              </h6>
+            </Button>
+          </ButtonGroup>
+          <br />
           <style type="text/css">
             {`
     .btn-btn {
@@ -186,6 +164,7 @@ function Home({ user, setUser }) {
       
     `}
           </style>
+          <br />
           <Button
             id="logout-btn"
             onClick={handleLogout}
