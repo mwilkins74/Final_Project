@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :user_reminders
-  # resources :users
+  resources :users
   resources :contacts
   resources :reminders
   resources :user_contacts

@@ -5,12 +5,10 @@ import NewReminderForm from "./NewReminderForm";
 import Search from "./Search";
 import "./index.css";
 import TimeDisplay from "./TimeDisplay";
-// import NavBar from "./NavBar";
 
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { createTheme } from "@mui/material/styles";
-
 
 const theme = createTheme({
   palette: {
@@ -140,11 +138,9 @@ function Home({ user, setUser }) {
                   boxShadow: 3,
                 }}
               >
-                <span class="emojiArrow">
                   <h6>
                     Ascending <br /> Order
                   </h6>
-                </span>
               </Button>
               <Button
                 class="down"
@@ -163,11 +159,9 @@ function Home({ user, setUser }) {
                   boxShadow: 3,
                 }}
               >
-                <span class="emojiArrow">
                   <h6>
                     Descending <br /> Order
                   </h6>
-                </span>
               </Button>
               </ButtonGroup>
           <style type="text/css">
@@ -191,6 +185,8 @@ function Home({ user, setUser }) {
           >
             <strong>Log Out</strong>
           </Button>
+
+          {/* Add New Reminder Form Button */}
           <Button
             id="new-reminder-btn"
             onClick={handleForm}
