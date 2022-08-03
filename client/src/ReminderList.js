@@ -9,42 +9,44 @@ import Card from "@mui/material/Card";
 
 const Item = styled(Card)(({ theme }) => ({
   // padding: theme.spacing(1),
-  textAlign: "center",
+  textAlign: "center",  
   color: theme.palette.text.secondary,
 }));
 
 function ReminderList({ user, setUser, reminders, setReminders }) {
   return (
-    <Card sx={{ minWidth: 20 }}>
-      <Grid className="cont-background" container spacing={4}>
-        {reminders.map((reminder) =>
-          reminder.id ? (
-            <Grid item xs={12} sm={6} md={3} lg={1.5}>
-              <Item>
-                <ReminderCard
-                  user={user}
-                  setUser={setUser}
-                  reminder={reminder}
-                  reminders={reminders}
-                  setReminders={setReminders}
-                  key={reminders.id}
-                  id={reminder.id}
-                  title={reminder.title}
-                  address={reminder.address}
-                  date={reminder.date}
-                  time={reminder.time}
-                  incomplete={reminder.incomplete}
-                  design={reminder.design}
-                  // link={reminder.link}
-                />
-              </Item>
-            </Grid>
-          ) : (
-            ""
-          )
-        )}
-      </Grid>
-    </Card>
+    
+      <Card sx={{ minWidth: 20 }}><div >
+        <Grid className="cont-background" container spacing={4}>
+          {reminders.map((reminder) =>
+            reminder.id ? (
+              <Grid item xs={12} sm={6} md={2.4} >
+                <Item>
+                  <ReminderCard
+                    user={user}
+                    setUser={setUser}
+                    reminder={reminder}
+                    reminders={reminders}
+                    setReminders={setReminders}
+                    key={reminders.id}
+                    id={reminder.id}
+                    title={reminder.title}
+                    address={reminder.address}
+                    date={reminder.date}
+                    time={reminder.time}
+                    incomplete={reminder.incomplete}
+                    design={reminder.design}
+                    // link={reminder.link}
+                  />
+                </Item>
+              </Grid>
+            ) : (
+              ""
+            )
+          )}
+        </Grid></div>
+      </Card>
+    
   );
 }
 

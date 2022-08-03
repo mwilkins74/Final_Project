@@ -33,7 +33,7 @@ function TimeDisplay() {
     <div>
       <div className="date_container">
         <div className="date">
-          <h2 className="day">{day}</h2>
+          {/* <h2 className="day">{day}</h2> */}
           <h3 className="clockFace">{clockFace}</h3>
         </div>
       </div>
