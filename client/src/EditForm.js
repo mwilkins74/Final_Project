@@ -101,7 +101,7 @@ function EditForm({ user, reminder, reminders, setReminders }) {
           </div>
           <br />
 
-          <div>
+          <div class="edit-dropdown">
             <select onChange={(e) => setDesign(e.target.value)}>
               <option className="medical" value="medical">
                 Medical
@@ -120,6 +120,7 @@ function EditForm({ user, reminder, reminders, setReminders }) {
               </option>
             </select>
           </div>
+          <br />
 
           {/* Submit Button */}
           <Button type="submit" variant="contained" theme={theme}>

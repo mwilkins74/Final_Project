@@ -85,28 +85,28 @@ function ReminderCard({
             <span class="emoji">📍</span>
 
             <Typography
-              sx={{ fontSize: 20 }}
+              sx={{ fontSize: 24 }}
               color="text.secondary"
               gutterBottom
             >
               <strong>{title}</strong>
             </Typography>
             <Typography
-              sx={{ fontSize: 16 }}
+              sx={{ fontSize: 20 }}
               color="text.secondary"
               gutterBottom
             >
               <strong>{address}</strong>
             </Typography>
             <Typography
-              sx={{ fontSize: 14 }}
+              sx={{ fontSize: 18 }}
               color="text.secondary"
               gutterBottom
             >
               {date}
             </Typography>
             <Typography
-              sx={{ fontSize: 14 }}
+              sx={{ fontSize: 18 }}
               color="text.secondary"
               gutterBottom
             >

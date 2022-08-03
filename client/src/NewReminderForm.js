@@ -159,7 +159,7 @@ function NewReminderForm({ user, reminders, setRem, setChange }) {
           <br />
           <br />
           <Button
-            className="plus_reminder"
+            id="add-btn"
             type="submit"
             variant="btn"
             theme={theme}

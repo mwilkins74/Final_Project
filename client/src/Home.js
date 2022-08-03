@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import ReminderList from "./ReminderList";
 import NewReminderForm from "./NewReminderForm";
 import Search from "./Search";
+import "./index.css";
 // import NavBar from "./NavBar";
 
 import Button from "@mui/material/Button";
@@ -97,6 +98,7 @@ function Home({ user, setUser }) {
 
   return (
     <div className="home">
+      <div className="test">
         <div className="logo">
           <div classname="home-logo">
             <img
@@ -116,19 +118,19 @@ function Home({ user, setUser }) {
           </div>
 
           {/* Ascending & Descending Buttons */}
-          <div className="up-down">
+          <div>
             <div>
               <Button
-              
+                class="up"
                 onClick={handleAsc}
                 variant="btn"
                 theme={theme}
                 style={{
                   backgroundColor: "lightblue",
-                  maxWidth: "130px",
-                  maxHeight: "130px",
-                  minWidth: "130px",
-                  minHeight: "130px",
+                  // maxWidth: "110px",
+                  // maxHeight: "110px",
+                  // minWidth: "110px",
+                  // minHeight: "110px",
                 }}
                 sx={{
                   position: "absolute",
@@ -142,22 +144,22 @@ function Home({ user, setUser }) {
                   <h6>
                     Ascending <br /> Order
                   </h6>
-                  ⬆
                 </span>
               </Button>
             </div>
             <br />
             <div>
               <Button
+                class="down"
                 onClick={handleDesc}
                 variant="btn"
                 theme={theme}
                 style={{
                   backgroundColor: "lightblue",
-                  maxWidth: "130px",
-                  maxHeight: "130px",
-                  minWidth: "130px",
-                  minHeight: "130px",
+                  // maxWidth: "130px",
+                  // maxHeight: "130px",
+                  // minWidth: "130px",
+                  // minHeight: "130px",
                 }}
                 sx={{
                   position: "absolute",
@@ -171,7 +173,6 @@ function Home({ user, setUser }) {
                   <h6>
                     Descending <br /> Order
                   </h6>
-                  ⬇
                 </span>
               </Button>
             </div>
@@ -186,6 +187,7 @@ function Home({ user, setUser }) {
     `}
           </style>
           <Button
+            id="logout-btn"
             onClick={handleLogout}
             variant="btn"
             theme={theme}
@@ -194,10 +196,8 @@ function Home({ user, setUser }) {
           >
             <strong>Log Out</strong>
           </Button>
-          <br />
-          <br />
-          <br />
           <Button
+            id="new-reminder-btn"
             onClick={handleForm}
             variant="btn"
             theme={theme}
@@ -222,20 +222,23 @@ function Home({ user, setUser }) {
               setRem={setRem}
             />
           ) : null}
-          {reminders ? (
-            <ReminderList
-              user={user}
-              setUser={setUser}
-              reminders={displayReminder}
-              setReminders={setReminders}
-              change={change}
-              setChange={setChange}
-            />
-          ) : (
-            <p>User has no reminders</p>
-          )}
+          <div className="card-Container">
+            {reminders ? (
+              <ReminderList
+                user={user}
+                setUser={setUser}
+                reminders={displayReminder}
+                setReminders={setReminders}
+                change={change}
+                setChange={setChange}
+              />
+            ) : (
+              <p>User has no reminders</p>
+            )}
+          </div>
         </div>
       </div>
+    </div>
   );
 }
 
