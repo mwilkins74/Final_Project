@@ -4,11 +4,13 @@ import ReminderList from "./ReminderList";
 import NewReminderForm from "./NewReminderForm";
 import Search from "./Search";
 import "./index.css";
+import TimeDisplay from "./TimeDisplay";
 // import NavBar from "./NavBar";
 
 import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 import { createTheme } from "@mui/material/styles";
-import TimeDisplay from "./TimeDisplay";
+
 
 const theme = createTheme({
   palette: {
@@ -29,9 +31,9 @@ function Home({ user, setUser }) {
 
   let history = useHistory();
 
-    function handleForm(e) {
-      setShowForm(!showForm);
-    }
+  function handleForm(e) {
+    setShowForm(!showForm);
+  }
 
   // useEffect(() => {
   //   fetch(`/reminders/${user.id}`)
@@ -42,16 +44,16 @@ function Home({ user, setUser }) {
   //     });
   // }, [change]);
 
-   useEffect(() => {
-     fetch("/me")
-       .then((response) => response.json())
-       .then((data) => {
-         console.log(data);
-         setReminders(data.reminders);
-       });
-   }, [change]);
+  useEffect(() => {
+    fetch("/me")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setReminders(data.reminders);
+      });
+  }, [change]);
 
-  // Logout 
+  // Logout
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
@@ -113,13 +115,14 @@ function Home({ user, setUser }) {
           <TimeDisplay />
 
           {/* Search Bar */}
+          <br/>
+          <br/>
           <div className="search-bar">
             <Search search={search} onNewSearch={setSearch} />
           </div>
 
           {/* Ascending & Descending Buttons */}
-          <div>
-            <div>
+              <ButtonGroup variant="contained" aria-label="outlined primary button group">
               <Button
                 class="up"
                 onClick={handleAsc}
@@ -127,10 +130,7 @@ function Home({ user, setUser }) {
                 theme={theme}
                 style={{
                   backgroundColor: "lightblue",
-                  // maxWidth: "110px",
-                  // maxHeight: "110px",
-                  // minWidth: "110px",
-                  // minHeight: "110px",
+                
                 }}
                 sx={{
                   position: "absolute",
@@ -146,9 +146,6 @@ function Home({ user, setUser }) {
                   </h6>
                 </span>
               </Button>
-            </div>
-            <br />
-            <div>
               <Button
                 class="down"
                 onClick={handleDesc}
@@ -156,10 +153,7 @@ function Home({ user, setUser }) {
                 theme={theme}
                 style={{
                   backgroundColor: "lightblue",
-                  // maxWidth: "130px",
-                  // maxHeight: "130px",
-                  // minWidth: "130px",
-                  // minHeight: "130px",
+                 
                 }}
                 sx={{
                   position: "absolute",
@@ -175,8 +169,7 @@ function Home({ user, setUser }) {
                   </h6>
                 </span>
               </Button>
-            </div>
-          </div>
+              </ButtonGroup>
           <style type="text/css">
             {`
     .btn-btn {
@@ -186,6 +179,8 @@ function Home({ user, setUser }) {
       
     `}
           </style>
+          <br/>
+          <br/>
           <Button
             id="logout-btn"
             onClick={handleLogout}

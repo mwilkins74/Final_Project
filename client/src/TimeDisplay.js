@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function TimeDisplay() {
-    const [clockFace, setClockFace] = useState("");
+  const [clockFace, setClockFace] = useState("");
 
   const locale = "en";
   let now = new Date();
@@ -28,18 +28,11 @@ function TimeDisplay() {
     };
   }, []);
 
-
   return (
-    <div>
-      <div className="date_container">
-        <div className="date">
-          {/* <h2 className="day">{day}</h2> */}
-          <h3 className="clockFace">{clockFace}</h3>
-        </div>
-      </div>
-      <br />
-    </div>
+          <h1 className="clockFace">
+            <strong>{clockFace}</strong>
+          </h1>
   );
 }
 
-export default TimeDisplay
+export default TimeDisplay;
