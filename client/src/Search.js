@@ -35,25 +35,6 @@ function Search({ onNewSearch }) {
                 value={newSearch}
                 onChange={(e) => setNewSearch(e.target.value)}
               />
-              {/* <Button
-                class="input-group-text border-0 fas fa-search"
-                type="submit"
-                variant="btn"
-                theme={theme}
-                sx={{ boxShadow: 3 }}
-                style={{ backgroundColor: "lightblue" }}
-              >
-                🔎
-              </Button> */}
-              {/* <Button
-                onClick={(e) => setNewSearch("")}
-                variant="btn"
-                theme={theme}
-                sx={{ boxShadow: 3 }}
-                style={{ backgroundColor: "#FF914D" }}
-              >
-                <strong>Clear</strong>
-              </Button> */}
               <i class="fa fa-search"></i>
             </div>
           </form>
