@@ -49,6 +49,7 @@ function NewReminderForm({ user, reminders, setRem, setChange }) {
     <div class="container">
       <div >
         <form onSubmit={(e) => handleNewReminder(e)}>
+          
           {/* Title */}
           <div>
             <input
