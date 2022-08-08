@@ -103,14 +103,14 @@ function ReminderCard({
               color="text.secondary"
               gutterBottom
             >
-              {date}
+              <strong>{date}</strong>
             </Typography>
             <Typography
               sx={{ fontSize: 18 }}
               color="text.secondary"
               gutterBottom
             >
-              {updateTime}
+              <strong>{updateTime}</strong>
             </Typography>
             <br />
             <style type="text/css">
@@ -132,7 +132,7 @@ function ReminderCard({
             </Button>
             <br />
             <br />
-            
+
             {/* Delete Button */}
             <Button
               onClick={() => handleDelete()}
