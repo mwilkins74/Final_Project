@@ -9,18 +9,5 @@
     "clean": "rm -rf public",
     "deploy": "cp -a client/build/. public/",
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@material-ui/core": "^4.12.4",
-    "@material-ui/icons": "^4.11.3",
-    "@material-ui/utils": "^4.11.3",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.9.2",
-    "@mui/styled-engine-sc": "^5.8.0",
-    "material-ui-icons": "^1.0.0-beta.36",
-    "react-infinite-grid": "^0.4.0",
-    "styled-components": "^5.3.5"
   }
 }
