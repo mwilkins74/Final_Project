@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 
-import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#FF914D",
-    },
-  },
-});
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: "#FF914D",
+//     },
+//   },
+// });
 
 function Search({ onNewSearch }) {
   const [newSearch, setNewSearch] = useState("");

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./index.css";
 
 import Button from "@mui/material/Button";
@@ -49,7 +49,7 @@ function NewReminderForm({ user, reminders, setRem, setChange }) {
     <div class="container">
       <div >
         <form onSubmit={(e) => handleNewReminder(e)}>
-          
+
           {/* Title */}
           <div>
             <input
