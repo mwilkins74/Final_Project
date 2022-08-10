@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  namespace :api do
   resources :user_reminders
   resources :users
   resources :contacts
@@ -17,11 +18,10 @@ Rails.application.routes.draw do
 
   delete "/logout", to: "sessions#destroy"
   delete '/my-reminders/:id', to: "reminders#destroy"
+  end
   
 
   
 
-  get '*path',
-      to: 'fallback#index',
-      constraints: ->(req) { !req.xhr? && req.format.html? }
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

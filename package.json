@@ -1,5 +1,5 @@
 {
-  "name": "phase-4-deploying-app-demo",
+  "name": "phase-5-final-project-remind-me",
   "description": "Build scripts for Heroku",
   "engines": {
     "node": "16.x"
@@ -8,6 +8,10 @@
     "clean": "rm -rf public",
     "build": "npm install --prefix client && npm run build --prefix client",
     "deploy": "cp -a client/build/. public/",
-    "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+    "heroku-postbuild": "npm run clean && npm run build && npm run deploy",
+    "start": "node ./client/src/App.js"
+  },
+  "dependencies": {
+    "serve": "^14.0.1"
   }
 }
